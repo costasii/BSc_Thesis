@@ -1,0 +1,1 @@
+1. Mogu li koristiti njihove train i test .csv datoteke kao dataset (oni imaju skripte koje skidaju .json sa stranice (485 mb) i pretvaraju ga u .csv i splitaju u train i test iz .json fajla) (jer ovo bi značilo da ga ja ne splitam sama)
