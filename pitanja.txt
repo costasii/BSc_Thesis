@@ -1,1 +1,36 @@
 1. Mogu li koristiti njihove train i test .csv datoteke kao dataset (oni imaju skripte koje skidaju .json sa stranice (485 mb) i pretvaraju ga u .csv i splitaju u train i test iz .json fajla) (jer ovo bi značilo da ga ja ne splitam sama)
+2. Predviđanje CSSV score-a: regresijski modeli.
+    Predviđanje drugih kategorija: klasifikacija user interaction, confidetiality, integrity... (na HIGH LOW NONE)
+        modeli koje donekle poznajem, ali radila sam samo binarni klasifikator pa bi i to moglo biti zanimlijivo.
+
+
+Modeli:
+1. Support Vector Regression (https://www.aionlinecourse.com/tutorial/machine-learning/support-vector-regression
+)
+-----------------------
+LINKS:
+
+CVSS score metrics explained: https://www.balbix.com/insights/base-cvss-scores/#:~:text=Scope%20has%20two%20possible%20ratings,only%20the%20local%20security%20authority.
+
+-----------------------
+1. Je li preambiciozno probati postići i objašnjivost?
+
+-----------------------
+1. Modeli za klasifikaciju submodela. 
+    ==> iz opisa predviđati vrijednosti:
+        attack vector           network, adjacent network, local, physical
+        attack complexity       low, high
+        privileges required     none, low, high
+        user interface          none, required
+        scope                   changed, unchanged
+        confidetiality impact   high, low, none
+        integrity impact        high, low, none
+        availability impact     high, low, none
+
+    1.1 SVM + Bag of Words
+
+
+
+2. Regresijski model za računanje CVSS scorea iz opisa.
+
+3. Regresijski model za računanje CVSS scorea iz opisa i submodela.
