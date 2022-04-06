@@ -7,6 +7,11 @@
 Modeli:
 1. Support Vector Regression (https://www.aionlinecourse.com/tutorial/machine-learning/support-vector-regression
 )
+1.1.Word2Vec
+1.2 Bag Of Words
+    a) Kod stvaranja Bag of Words: Ne mogu koristiti cijeli dataset jer CountVectorizer baca Memory error.
+    Postoji rješenje da podijelim dataset na manje dijelove pa radim pojedinačno, ali čini mi se komplicirano za 
+    baseline model, tako da sam uzela dio dataseta.
 -----------------------
 LINKS:
 
@@ -17,6 +22,9 @@ CVSS score metrics explained: https://www.balbix.com/insights/base-cvss-scores/#
 
 -----------------------
 1. Modeli za klasifikaciju submodela. 
+    Vulnerwatch nije to radio, nego su ove klase ručno upisivane i zajedno s opisom korištene za predviđanje CVSS scora.
+    Multilabel classification za ovih 8 vrijednosti bi onda bila moguća pomoć za buduće izračune CVSSa?
+
     ==> iz opisa predviđati vrijednosti:
         attack vector           network, adjacent network, local, physical
         attack complexity       low, high
@@ -28,6 +36,10 @@ CVSS score metrics explained: https://www.balbix.com/insights/base-cvss-scores/#
         availability impact     high, low, none
 
     1.1 SVM + Bag of Words
+    1.2 SVM + Word2Vec
+    1.3 MLP
+    1.4 LSTM
+    1.5 BERT
 
 
 
