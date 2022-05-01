@@ -1,12 +1,40 @@
-1. Mogu li koristiti njihove train i test .csv datoteke kao dataset (oni imaju skripte koje skidaju .json sa stranice (485 mb) i pretvaraju ga u .csv i splitaju u train i test iz .json fajla) (jer ovo bi značilo da ga ja ne splitam sama)
-2. Predviđanje CSSV score-a: regresijski modeli.
-    Predviđanje drugih kategorija: klasifikacija user interaction, confidetiality, integrity... (na HIGH LOW NONE)
-        modeli koje donekle poznajem, ali radila sam samo binarni klasifikator pa bi i to moglo biti zanimlijivo.
+1. Regresijski model za računanje CVSS scorea iz opisa.
+-- da
+    1. pokus:
+        SVR (Word2Vec) i testiranje različitih parametara za što bolji rezultat. 
+
+    Nisam našla rad koji je radio točno to, pa bi bilo zanimljivo usporediti te rezultate s CVSS-om koji je dobiven formulom iz submodela 
+    (kao Vulnerwatch)
+
+2. BERT za predviđanje submodela iz opisa, iz kojih se formulom računa CVSS score
+-- da
+    2. pokus:
+        BERT (opisi => submodeli), testiranje različitih parametara.
+
+        ==> iz opisa predviđati vrijednosti:
+        attack vector           network, adjacent network, local, physical
+        attack complexity       low, high
+        privileges required     none, low, high
+        user interface          none, required
+        scope                   changed, unchanged
+        confidetiality impact   high, low, none
+        integrity impact        high, low, none
+        availability impact     high, low, none
+
+    
+    To je isto što je Vulnerwatch radio, još moram uzet njihovu formulu za CVSS (ne znam jel to ok)
+
+------
+Na kraju usporediti rezultate (CVSS score) 1. i 2. pokusa međusobno, te s literaturom.
+
+
+
+------------------------------
+
 
 
 Modeli:
-1. Support Vector Regression (https://www.aionlinecourse.com/tutorial/machine-learning/support-vector-regression
-)
+1. Support Vector Regression (https://www.aionlinecourse.com/tutorial/machine-learning/support-vector-regression)
 1.1.Word2Vec
 1.2 Bag Of Words
     a) Kod stvaranja Bag of Words: Ne mogu koristiti cijeli dataset jer CountVectorizer baca Memory error.
@@ -21,28 +49,3 @@ CVSS score metrics explained: https://www.balbix.com/insights/base-cvss-scores/#
 1. Je li preambiciozno probati postići i objašnjivost?
 
 -----------------------
-1. Modeli za klasifikaciju submodela. 
-    Vulnerwatch nije to radio, nego su ove klase ručno upisivane i zajedno s opisom korištene za predviđanje CVSS scora.
-    Multilabel classification za ovih 8 vrijednosti bi onda bila moguća pomoć za buduće izračune CVSSa?
-
-    ==> iz opisa predviđati vrijednosti:
-        attack vector           network, adjacent network, local, physical
-        attack complexity       low, high
-        privileges required     none, low, high
-        user interface          none, required
-        scope                   changed, unchanged
-        confidetiality impact   high, low, none
-        integrity impact        high, low, none
-        availability impact     high, low, none
-
-    1.1 SVM + Bag of Words
-    1.2 SVM + Word2Vec
-    1.3 MLP
-    1.4 LSTM
-    1.5 BERT
-
-
-
-2. Regresijski model za računanje CVSS scorea iz opisa.
-
-3. Regresijski model za računanje CVSS scorea iz opisa i submodela.
