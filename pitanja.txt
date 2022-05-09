@@ -1,5 +1,11 @@
 1. Regresijski model za računanje CVSS scorea iz opisa.
 -- da
+    Zašto?
+    Označavanje svakog CVE-a s tih 8 parametara iziskuje puno znanja i truda. Također, može biti subjektivno.
+    Svi koji koriste CVSS score kao ocjenu za neki napad, morali bi biti poznati s metodom koja ga računa, 
+    pa je poželjno da metoda ne bude kompliciranija nego što treba biti.
+
+    Potrebno urediti rečenice (maknuti stopwords)
     1. pokus:
         SVR (Word2Vec) i testiranje različitih parametara za što bolji rezultat. 
 
@@ -21,6 +27,8 @@
         integrity impact        high, low, none
         availability impact     high, low, none
 
+        BERT (opisi => score)
+
     
     To je isto što je Vulnerwatch radio, još moram uzet njihovu formulu za CVSS (ne znam jel to ok)
 
@@ -30,22 +38,29 @@ Na kraju usporediti rezultate (CVSS score) 1. i 2. pokusa međusobno, te s liter
 
 
 ------------------------------
+Pitanja za 2.5.
+
+0. Pokusi?
+
+SVR
+1. Što bi značilo standardno skaliranje vektora?
+2. Kako vizualizirati vektore i score (bar u nekom pojednostavljenom smislu)?
+3. Za hiperparametre C i epsilon, da isprobavam neki range koji se općenito prihvaća pa uspoređujem modele po MSE, 
+    pa uzmem najbolje par? Ili postoji neki način za direktan fit parametara?
+
+
+
+
+
+
+
 
 
 
 Modeli:
 1. Support Vector Regression (https://www.aionlinecourse.com/tutorial/machine-learning/support-vector-regression)
-1.1.Word2Vec
-1.2 Bag Of Words
-    a) Kod stvaranja Bag of Words: Ne mogu koristiti cijeli dataset jer CountVectorizer baca Memory error.
-    Postoji rješenje da podijelim dataset na manje dijelove pa radim pojedinačno, ali čini mi se komplicirano za 
-    baseline model, tako da sam uzela dio dataseta.
------------------------
-LINKS:
+
 
 CVSS score metrics explained: https://www.balbix.com/insights/base-cvss-scores/#:~:text=Scope%20has%20two%20possible%20ratings,only%20the%20local%20security%20authority.
-
------------------------
-1. Je li preambiciozno probati postići i objašnjivost?
 
 -----------------------
