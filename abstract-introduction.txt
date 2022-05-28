@@ -1,0 +1,19 @@
+ABSTRACT
+
+Cyber attacks are a problem of all users of computer systems. Prioritization and evaluation of threats can be difficult and costly. The Common Vulnerability Scoring System (CVSS) score is used to assess the danger of a threat. CVSS is assigned by experts. 
+With help of NLP methods it is possible to predict CVSS score from description of a threat.
+Using Support Vector Regression --- 
+Compared to BERT ---
+
+
+
+
+INTRODUCTION
+
+Every entity that is dependent on a computer system, from corporations to individuals, could be a subject to cyber attacks.
+As technology evolves, more various threats to its security emerge.
+Tracking, describing, and evaluating these threats is of use when developing defense systems and making business decisions.
+The MITRE Corporation maintains a database of an increasing number of Common Vulnerability and Exposure (CVE) records.
+A CVE record includes an ID, a brief description of the vulnerability, and references. 
+In order to manipulate and prioritize vulnerabilities in a system, the metric of the Common Vulnerability Scoring System (CVSS) score is used. CVSS score is human-determined. This process is long, costly, and subjective. 
+In this research, NLP methods are used to predict the CVSS score by analyzing the description from the CVE record.
