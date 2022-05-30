@@ -1,0 +1,10 @@
+\babel@toc {english}{}\relax 
+\contentsline {chapter}{\numberline {1}Introduction}{1}{}%
+\contentsline {section}{\numberline {1.1}Common Vulnerabilities and Exposures System}{1}{}%
+\contentsline {section}{\numberline {1.2}Common Vulnerability Scoring System}{1}{}%
+\contentsline {chapter}{\numberline {2}Related work}{3}{}%
+\contentsline {chapter}{\numberline {3}Data}{4}{}%
+\contentsline {chapter}{\numberline {4}Models}{5}{}%
+\contentsline {chapter}{\numberline {5}Experiments and results}{6}{}%
+\contentsline {chapter}{\numberline {6}Conclusion}{7}{}%
+\contentsline {chapter}{Bibliography}{8}{}%

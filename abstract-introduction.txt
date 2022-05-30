@@ -8,12 +8,49 @@ Compared to BERT ---
 
 
 
-INTRODUCTION
+1.INTRODUCTION
 
-Every entity that is dependent on a computer system, from corporations to individuals, could be a subject to cyber attacks.
+Every entity that is dependent on a computer system, from corporations to individuals, could be a subject to cyber attacks. 
+In 2018 there were 80,000 cyber attacks per day or over 30 million attacks per year. (1)
+During the CoVid-19 pandemic, the cybercrime went up 600%, as PurpleSec suggests. (2)
 As technology evolves, more various threats to its security emerge.
 Tracking, describing, and evaluating these threats is of use when developing defense systems and making business decisions.
-The MITRE Corporation maintains a database of an increasing number of Common Vulnerability and Exposure (CVE) records.
-A CVE record includes an ID, a brief description of the vulnerability, and references. 
-In order to manipulate and prioritize vulnerabilities in a system, the metric of the Common Vulnerability Scoring System (CVSS) score is used. CVSS score is human-determined. This process is long, costly, and subjective. 
-In this research, NLP methods are used to predict the CVSS score by analyzing the description from the CVE record.
+
+
+1.1 Common Vulnerabilities and Exposures System
+
+A vulnerability is a weakness in a computer system, that can be exploited by an attacker to execute malicious commands, access data in an unauthorized way, or perform other types of cyber attacks. [4,5]
+A threat is any circumstance or event which has the potential to compromise system security. [6]
+In order to tackle the cybersecurity problems in a more organized manner, a system of CVE (Common Vulnerability and Exposure) has been developed.
+The MITRE Corporation maintains a public database of an increasing number of CVE records.
+A CVE record includes an ID, a brief description of the vulnerability, and references.
+
+1.2 CVSS 
+In order to manipulate and prioritize vulnerabilities in a system, the metric of the Common Vulnerability Scoring System (CVSS) score is used. This metric estimates how "dangerous" an exploitation of a vulnerability is. CVSS is an emerging standard of vulnerability comparison. [8] 
+CVSS is divided in three groups: Base, Temporal and Environmental score. 
+Base Score group shows the traits of the vulnerability that do not change over time and are not dependent on the environment. [9] Predicting the base score will be the subject of this research.
+There are eight CVSS Base submetrics: (slika1)
+Each submetric is assigned by experts. E. g., attack complexity can be assigned as High or Low. From these submetrics a hard-coded formula is used to compute the final Base score.
+Atefeh Khazaei et al. show an important concern in their work [8]: the CVSS calculation can be subjective.
+Moreover, the annotation requires experts and time, which is prolonging the process and is costly.
+
+
+
+In this research, NLP methods are used to predict the CVSS Base score by analyzing the description from the CVE record.
+
+
+
+
+(1) https://purplesec.us/resources/cyber-security-statistics/#:~:text=Cyber%20Security%20Risks,and%20health%20records%20left%20unprotected. 30.05.2022. 10:29
+(2) 
+(3) https://cve.mitre.org/
+(4) https://en.wikipedia.org/wiki/Common_Vulnerabilities_and_Exposures
+(5) citation arabian..
+(6) https://www.fer.unizg.hr/_download/repository/04._Prijetenje_i_izvori_prijetnji[1].pdf
+(7) https://nvd.nist.gov/vuln-metrics/cvss
+(8) citation ifs1733
+(9) https://www.balbix.com/insights/base-cvss-scores/#:~:text=Scope%20has%20two%20possible%20ratings,only%20the%20local%20security%20authority
+
+
+Slike
+(1) https://www.nowsecure.com/blog/2017/03/28/cvss-scores-for-mobile-apps-guidelines-for-measuring-mobile-risk/
