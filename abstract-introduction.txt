@@ -50,7 +50,7 @@ In this research, NLP methods are used to predict the CVSS Base score by analyzi
 (7) https://nvd.nist.gov/vuln-metrics/cvss
 (8) citation ifs1733
 (9) https://www.balbix.com/insights/base-cvss-scores/#:~:text=Scope%20has%20two%20possible%20ratings,only%20the%20local%20security%20authority
-
+(10) vulnerwatch citation
 
 Slike
 (1) https://www.nowsecure.com/blog/2017/03/28/cvss-scores-for-mobile-apps-guidelines-for-measuring-mobile-risk/

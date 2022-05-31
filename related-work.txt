@@ -1,0 +1,18 @@
+Inspiration to do this research has been given by the study of Cook, Bryan et al., who have developed an application that takes any vulnerability description and gives its CVSS score. [10] They used BERT classification to predict the Base score submetrics. The CVSS score was then calculated using the hard-coded CVSS formula and the predicted submetrics results. They have achieved accuracy in the 0.90 range. 
+Another study developing an objective method of CVSS score calculation, written by Khazaei et al. [], used Support Vector Machine, Random-Forest and fuzzy system. Their model's accuracy was around 0.86.
+This problem was approached in detail by Bozorgi et al. [] Instead of predicting the CVSS score itself, they have developed a new classification system, using various features of the vulnerability.
+
+
+
+
+
+
+
+
+
+
+
+
+
+(1)
+Cook, Bryan; Janamian, Saba; Lim, Teck; Logan, James; Ulloa, Ivan; Altintas, Ilkay; Gupta, Amarnath (2021). Using NLP to Predict the Severity of Cyber Security Vulnerabilities. In Data Science & Engineering Master of Advanced Study (DSE MAS) Capstone Projects. UC San Diego Library Digital Collections. https://doi.org/10.6075/J0TX3F89

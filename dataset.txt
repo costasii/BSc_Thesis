@@ -1,0 +1,18 @@
+Dataset used has been acquisited and prepared by Cook et al., when used in their work Using NLP to Predict the Severity of Cybersecurity Vulnerabilities, 2021.
+Most of the data is publicly available, and maintained by MITRE organization and the National Institute of Standards of Technology.
+From the cited research, we find out that at the beginning of 2021, only 50% CVE records had CVSS score assigned.
+The datasets were created by human experts, and therefore didn't need much preparation nor preproccessing. 
+
+1.1 Dataset structure
+
+The dataset has 61616 entries.
+The dataset consists of the following columns:
+	- cve_id (int64)
+	- submetrics
+		attack_vector (Phy...
+
+1.2 Dataset analysis
+
+According to CVSS v3.0 Ratings the severity is classified in the following ranges:
+
+		

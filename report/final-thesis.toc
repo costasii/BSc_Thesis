@@ -4,7 +4,19 @@
 \contentsline {section}{\numberline {1.2}Common Vulnerability Scoring System}{1}{}%
 \contentsline {chapter}{\numberline {2}Related work}{3}{}%
 \contentsline {chapter}{\numberline {3}Data}{4}{}%
-\contentsline {chapter}{\numberline {4}Models}{5}{}%
-\contentsline {chapter}{\numberline {5}Experiments and results}{6}{}%
-\contentsline {chapter}{\numberline {6}Conclusion}{7}{}%
-\contentsline {chapter}{Bibliography}{8}{}%
+\contentsline {section}{\numberline {3.1}Data acquisition}{4}{}%
+\contentsline {section}{\numberline {3.2}Dataset structure}{4}{}%
+\contentsline {section}{\numberline {3.3}Dataset analysis}{5}{}%
+\contentsline {chapter}{\numberline {4}Models}{6}{}%
+\contentsline {section}{\numberline {4.1}Baseline Models}{6}{}%
+\contentsline {section}{\numberline {4.2}Support Vector Regression}{6}{}%
+\contentsline {subsection}{\numberline {4.2.1}word2vec}{6}{}%
+\contentsline {subsection}{\numberline {4.2.2}Support Vector Machines}{6}{}%
+\contentsline {subsection}{\numberline {4.2.3}SVR, LinearSVR, SGDRegressor}{6}{}%
+\contentsline {section}{\numberline {4.3}BERT}{6}{}%
+\contentsline {subsection}{\numberline {4.3.1}BERT architecture}{6}{}%
+\contentsline {subsection}{\numberline {4.3.2}BERT for regression}{6}{}%
+\contentsline {subsection}{\numberline {4.3.3}BERT classification}{6}{}%
+\contentsline {chapter}{\numberline {5}Experiments and results}{7}{}%
+\contentsline {chapter}{\numberline {6}Conclusion}{8}{}%
+\contentsline {chapter}{Bibliography}{9}{}%
