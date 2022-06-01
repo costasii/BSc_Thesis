@@ -1,9 +1,22 @@
-\begin{thebibliography}{6}
+\begin{thebibliography}{15}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
   \providecommand{\doi}[1]{doi: #1}\else
   \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Awad and Khanna(2015)]{Awad2015}
+M.~Awad and R.~Khanna.
+\newblock \emph{Support Vector Regression}, pages 67--80.
+\newblock Apress, Berkeley, CA, 2015.
+\newblock ISBN 978-1-4302-5990-9.
+\newblock \doi{10.1007/978-1-4302-5990-9_4}.
+\newblock URL \url{https://doi.org/10.1007/978-1-4302-5990-9_4}.
+
+\bibitem[Boser and Vapnik(1992)]{boser}
+G.~I. Boser, B.E. and V.~Vapnik.
+\newblock A training algorithm for optimal margin classifiers.
+\newblock 1992.
 
 \bibitem[Bozorgi et~al.(2010)Bozorgi, Saul, Savage, and Voelker]{bozorgi}
 M.~Bozorgi, L.~Saul, S.~Savage, and G.~Voelker.
@@ -18,6 +31,13 @@ S.~B. F. M. e.~a. Cremer, F.
   availability.
 \newblock 2022.
 \newblock URL \url{https://doi.org/10.1057/s41288-022-00266-6}.
+
+\bibitem[Devlin et~al.(2018)Devlin, Chang, Lee, and Toutanova]{47751}
+J.~Devlin, M.-W. Chang, K.~Lee, and K.~N. Toutanova.
+\newblock Bert: Pre-training of deep bidirectional transformers for language
+  understanding.
+\newblock 2018.
+\newblock URL \url{https://arxiv.org/abs/1810.04805}.
 
 \bibitem[Humayun et~al.(2020)Humayun, Niazi, Zaman, Alshayeb, and
   Mahmood]{humayun}
@@ -41,6 +61,43 @@ A.~Khazaei, M.~Ghasemzadeh, and V.~Derhami.
 \newblock \emph{Journal of Intelligent and Fuzzy Systems}, 30:\penalty0 89--96,
   08 2015.
 \newblock \doi{10.3233/IFS-151733}.
+
+\bibitem[Ma and Zhang(2015)]{ma}
+L.~Ma and Y.~Zhang.
+\newblock Using word2vec to process big text data, 10 2015.
+
+\bibitem[Mikolov et~al.(2013)Mikolov, Chen, Corrado, and Dean]{mikolov}
+T.~Mikolov, K.~Chen, G.~Corrado, and J.~Dean.
+\newblock Efficient estimation of word representations in vector space, 2013.
+\newblock URL \url{https://arxiv.org/abs/1301.3781}.
+
+\bibitem[Shimanaka et~al.(2019)Shimanaka, Kajiwara, and Komachi]{shimanaka}
+H.~Shimanaka, T.~Kajiwara, and M.~Komachi.
+\newblock Machine translation evaluation with bert regressor, 2019.
+\newblock URL \url{https://arxiv.org/abs/1907.12679}.
+
+\bibitem[Smola(2004)]{smola}
+S.~B. Smola, A.J.
+\newblock A tutorial on support vector regression.
+\newblock \emph{Statistics and Computing}, 14:\penalty0 199--222, 2004.
+
+\bibitem[Vaswani et~al.(2017)Vaswani, Shazeer, Parmar, Uszkoreit, Jones, Gomez,
+  Kaiser, and Polosukhin]{vaswani}
+A.~Vaswani, N.~Shazeer, N.~Parmar, J.~Uszkoreit, L.~Jones, A.~N. Gomez,
+  L.~Kaiser, and I.~Polosukhin.
+\newblock Attention is all you need, 2017.
+\newblock URL \url{https://arxiv.org/abs/1706.03762}.
+
+\bibitem[Wu et~al.(2019)Wu, Chen, Zhang, Xiong, Lei, and Deng]{WU201926}
+J.~Wu, X.-Y. Chen, H.~Zhang, L.-D. Xiong, H.~Lei, and S.-H. Deng.
+\newblock Hyperparameter optimization for machine learning models based on
+  bayesian optimizationb.
+\newblock \emph{Journal of Electronic Science and Technology}, 17\penalty0
+  (1):\penalty0 26--40, 2019.
+\newblock ISSN 1674-862X.
+\newblock \doi{https://doi.org/10.11989/JEST.1674-862X.80904120}.
+\newblock URL
+  \url{https://www.sciencedirect.com/science/article/pii/S1674862X19300047}.
 
 \bibitem[Đerek(2021)]{FER}
 M.~V. Đerek, Groš.

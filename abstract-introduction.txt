@@ -11,7 +11,7 @@ Compared to BERT ---
 1.INTRODUCTION
 
 Every entity that is dependent on a computer system, especially if connected to the Internet, could be a subject to cyber attacks. 
-In 2020, it is approximated that cybercrime costed the global economy almost USD 1 trillion (Cremer et al. 2022).
+In 2020, it is approximated that cybercrime costed the global economy almost USD 1 trillion (Cremer et al., 2022).
 As technology evolves, more various threats to its security emerge.
 Tracking, describing, and evaluating these threats is of use when developing defense systems and making business decisions.
 
@@ -36,7 +36,6 @@ Moreover, the annotation requires experts and time, which is prolonging the proc
 
 
 In this research, NLP methods are used to predict the CVSS Base score by analyzing the description from the CVE record.
-
 
 
 

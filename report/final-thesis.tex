@@ -41,19 +41,19 @@ The CVSS score is computed using submetrics with descrete values that are assign
 Moreover, the annotation requires experts and time, which is prolonging the process and is costly.
 Sometimes, all of the information needed to compute CVSS scores may not be available. Many vulnerabilities aren't assigned the score at all. \citep{vulnerwatch}.\\
 
-The main subject of this research is predicting the CVSS score by analyzing the description of the vulnerability, taken from CVE records. \\
+\noindent The main subject of this research is predicting the CVSS score by analyzing the description of the vulnerability, taken from CVE records. \\
 This would be a more objective approach, and the process of obtaining the score would be cheaper and faster. \\
 BERT classification model has proven to be 90-95 \% accurate in predicting the submetrics using the description of the vulnerability. \\
 BERT is computationally expensive, and sometimes it is advised to try simpler models first, because they might work just as well. That is why Support Vector Regression and similar models were used to predict the score directly from the description.\\
 
-In the second chapter, the studies with similar concerns are mentioned. The details about the dataset used are explained in the third chapter. The simplified theory behind the models used is shown in the fourth chapter. The following are the explanations of the experiments, together with the results and their comparisons. 
+\noindent In the second chapter, the studies with similar concerns are mentioned. The details about the dataset used are explained in the third chapter. The simplified theory behind the models used is shown in the fourth chapter. The following are the explanations of the experiments, together with the results and their comparisons. 
 
 \chapter{Related work}
 Inspiration to do this research has been given by the study of Janamian et al., 2021, who have developed an application that takes any vulnerability description and gives its CVSS score. They used BERT classification to predict the Base score submetrics. The CVSS score was then calculated using the hard-coded CVSS formula and the predicted submetrics results. They have achieved accuracy in the 0.90 range. \\
 
-Another study developing an objective method of CVSS score calculation, written by Khazaei et al. in 2015, used Support Vector Machine, Random-Forest, and fuzzy system. Their model's accuracy was around 0.86. \\
+\noindent Another study developing an objective method of CVSS score calculation, written by Khazaei et al. in 2015, used Support Vector Machine, Random-Forest, and fuzzy system. Their model's accuracy was around 0.86. \\
 
-This problem was approached in detail by Bozorgi et al., 2010.  Instead of predicting the CVSS score itself, they have developed a new classification system, using various features of the vulnerability. \\
+\noindent This problem was approached in detail by Bozorgi et al., 2010.  Instead of predicting the CVSS score itself, they have developed a new classification system, using various features of the vulnerability. \\
 
 \chapter{Data}
 \section{Data acquisition}
@@ -91,7 +91,7 @@ The entire dataset counts 77,020 entries. It is split into training set (80\%) a
 \label{table:1}
 \end{table}
 
-The first eight entries of Table 3.1. correspond to eight submetrics of CVSS base score.
+\noindent The first eight entries of Table 3.1. correspond to eight submetrics of CVSS base score.
 The description is used as input in all performed experiments.
 The base\_score is a subgroup of CVSS score, which is most widely used when describing the severity of the vulnerability.
 
@@ -115,48 +115,48 @@ According to CVSS v3.0 Ratings the severity is classified in the following range
 	\label{table:2}
 \end{table}
 
-From Table 3.2. we can clearly see that the medium to high scores prevail in the training set.
+\noindent From Table 3.2. we can clearly see that the medium to high scores prevail in the training set.
 
 \chapter{Models}
 
 \section{Support Vector Regression}
 \subsection{Support Vector Machines}
-The Support Vector algorithm was developed in its present form at AT\&T Bell Laboratories by Vapnik with colleagues. [11,12] \\
-
-The Support Vector Machines are supervised learning models, that can be applied to classification, regression, and outliers detection problems. [13] \\
+The Support Vector algorithm was developed in its present form at AT\&T Bell Laboratories by Vapnik with colleagues \citep{boser}, \citep{smola} \\
+The Support Vector Machines are supervised learning models, that can be applied to classification, regression, and outliers detection problems. \footnote{\url{https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVR.html}} \\
 In classification problems, the output is a discrete variable, and in regression it is continuous. \\
+
+\noindent The following explanation is taken from the \citep{Awad2015}.
 The SV algorithm needs to find a function in n-dimensional space which fits the data. 
-Support Vectors are the data points around this function. A flexible tube is formed symmetrically around the function so that the absolute values of errors less than a certain threshold are ignored both above and below the estimate. This way, the data points outside of the tube are penalized, and those on the inside are not. [14] \\
-The SVR tries to find the narrowest tube centered around the function while minimizing the prediction error. [15] \\
+Support Vectors are the data points around this function. A flexible tube is formed symmetrically around the function so that the absolute values of errors less than a certain threshold are ignored both above and below the estimate. This way, the data points outside of the tube are penalized, and those on the inside are not.
+The SVR tries to find the narrowest tube centered around the function while minimizing the prediction error.  \\
+The advantage of SVR is that its complexity does not depend on the dimension of the input space. \\
 
-The advantage of SVR is that its complexity does not depend on the dimension of the input space. [14] \\
-
-Depending on the choice of kernel, data is mapped into different dimensional spaces. Kernel functions can be linear, rbf, polynomial, and sigmoid. \\
+\noindent Depending on the choice of kernel, data is mapped into different dimensional spaces. Kernel functions can be linear, rbf, polynomial, and sigmoid. \\
 The free parameters of the model are C and epsilon. \\
-The model is defined by its hyperparameters. They control the way the model fits the data. Their fine-tuning was performed using Bayesian optimization, which is based on the Bayesian theorem. More commonly used Grid Search tries out all given combinations of parameters. Bayes Search, as opposed to Grid Search, memorizes the result of the previous combination and uses it to choose the next combination, so that it comes to the optimum more quickly. [16] \\
+The model is defined by its hyperparameters. They control the way the model fits the data. Their fine-tuning was performed using Bayesian optimization, which is based on the Bayesian theorem. More commonly used Grid Search tries out all given combinations of parameters. Bayes Search, as opposed to Grid Search, memorizes the result of the previous combination and uses it to choose the next combination, so that it comes to the optimum more quickly. \citep{WU201926} \\
 
-The SVR, as well as other Support Vector models that will be mentioned, are implemented using scikit learn library. Implementation details are described in Chapter 5. Experiments and Results.
+\noindent The SVR, as well as other Support Vector models that will be mentioned, are implemented using \texttt{scikit-learn} library. Implementation details are described in Chapter 5. Experiments and Results.
 
 \subsection{word2vec}
-Word2vec is a way to represent natural language as vectors. It was developed by Mikolov et al. in 2013. [17] \\
-It consists of two learning models: Continuous Bag of Words (CBOW) and Skip-gram. CBOW predicts the word given its context, and Skip-gram predicts the context given a word. [18] \\
+Word2vec is a way to represent natural language as vectors. It was developed by Mikolov et al. in 2013 \citep{mikolov}. \\
+It consists of two learning models: Continuous Bag of Words (CBOW) and Skip-gram. CBOW predicts the word given its context, and Skip-gram predicts the context given a word. \citep{ma} \\
 Knowing the distances between vectors, it is possible to group similar words.
 This algorithm is used to convert the text input into vectors, after which they can be used in Support Vector Regression tasks.
 \subsection{LinearSVR and SGDRegressor}
 LinearSVR is similar to a Support Vector Regression model with a linear kernel. 
-The difference is that LinearSVR is implemented as a liblinear model, and SVR as libsvm. [scikit learn] \\
-SGD stands for Stochastic Gradient Descent. This is an iterative method of finding a function optimum. The gradient of the loss is estimated each sample at a time and the model is updated along the way with a decreasing learning rate. [scikit learn] \\
-It is advised to use LinearSVR or SGDRegressor over SVR for large datasets. [scikit learn] 
+The difference is that LinearSVR is implemented as a liblinear model, and SVR as libsvm. \footnote{\url{https://scikit-learn.org/stable/modules/generated/sklearn.svm.LinearSVR.html#sklearn.svm.LinearSVR}} \\
+SGD stands for Stochastic Gradient Descent. This is an iterative method of finding a function optimum. The gradient of the loss is estimated each sample at a time and the model is updated along the way with a decreasing learning rate. \footnote{\url{https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.SGDRegressor.html#sklearn.linear_model.SGDRegressor}} \\
+It is advised to use LinearSVR or SGDRegressor over SVR for large datasets. \footnote{\url{https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVR.html}}
 
 \section{BERT}
 \subsection{BERT architecture}
-\textbf{Bidirectional Encoder Representations from Transformers} is a fairly new and revolutionary language representation model, developed by Google (Delvin et al. 2018) [20]. \\
+\textbf{Bidirectional Encoder Representations from Transformers} is a fairly new and revolutionary language representation model, developed by Google \citep{47751} \\
 BERT is fundamentally a transformer language model.
-Developed by Vaswani et al., 2017, the \textbf{Transformer} is a network architecture based on attention mechanisms. Until the invention of transformers, more complicated models such as recurrent and convolutional neural networks with an encoder and a decoder were used to solve translation tasks. The new model improved translation, sequence modeling, and other similar tasks. [21] \\
-The transformer architecture is based on an encoder that maps an input to a continuous representation, and a decoder that produces the output using the encoded representation, one element at a time. At every step, the model takes into account the previously encoded symbols by including them in the input. This way, the model considers the context. [21] \\
+Developed by Vaswani et al., 2017, the \textbf{Transformer} is a network architecture based on attention mechanisms. Until the invention of transformers, more complicated models such as recurrent and convolutional neural networks with an encoder and a decoder were used to solve translation tasks. The new model improved translation, sequence modeling, and other similar tasks \citep{vaswani}. \\
+The transformer architecture is based on an encoder that maps an input to a continuous representation, and a decoder that produces the output using the encoded representation, one element at a time. At every step, the model takes into account the previously encoded symbols by including them in the input. This way, the model considers the context \citep{vaswani}. \\
 By definition, an attention function is mapping vectors as a weighted sum to an output, where the vectors correspond to a query, keys, and values. \\
-The novelty in the BERT model is the bidirectional encoder, that is, the incorporation of context from both directions. This matters significantly in token-level tasks, such as question answering, token classification, etc. In order to perform bidirectional pre-training, BERT uses masked language models. [20] \\
-A great advantage of BERT over other language models is that the model has been already pre-trained on large text corpora. This model can then be fine-tuned with only one more output layer, and this model can be applied to a variety of tasks. [20] This framework is called transfer learning. \\
+The novelty in the BERT model is the bidirectional encoder, that is, the incorporation of context from both directions. This matters significantly in token-level tasks, such as question answering, token classification, etc. In order to perform bidirectional pre-training, BERT uses masked language models \citep{47751}. \\
+A great advantage of BERT over other language models is that the model has been already pre-trained on large text corpora. This model can then be fine-tuned with only one more output layer, and this model can be applied to a variety of tasks \citep{47751}. This framework is called transfer learning. \\
 When implementing BERT to a specific task, we can use an already pre-trained model. Our task is then to fine-tune it.
 Fine-tuning is in fact putting data through a transformer self-attention mechanism.
 \subsection{Data prepartion for BERT}
@@ -164,7 +164,7 @@ The dataset has to be split into train, development, and test set.\\
 Attributes that are necessary to fine-tune BERT are the following:
 \begin{itemize}
 	\item input ids - list of tokens, smallest units of text that make sense,
-	\item  input mask - implies that all sequences that are longer than a specified length of a sequence will be truncated to that specified length, and those that are shorter will be padded with additional tokens,
+	\item  input mask - implies that all sequences that are longer than a specified length of a sequence will be truncated to that specified length, and those that are shorter will be padded with additional tokens and
 	\item label id - id of the label for a sequence.
 \end{itemize}
  
@@ -174,7 +174,7 @@ In this research, the \texttt{bert-base-uncased} was used as the pre-trained mod
 Some common tasks are implemented in the transformers library as the top layer. One of those is BertForSequenceClassification, which was used in this research to predict the eight submetrics of the Base score. 
 \subsection{BERT for regression}
 Similarly to the classification task, on top of 12 transformers lies a BertRegressor layer that gives the output for a regression task. The Bert Regressor was used to predict the base score directly from the description.\\
-BERT Regressor is widely used in machine translation evaluation tasks. [22]
+BERT Regressor is widely used in machine translation evaluation tasks. \citep{shimanaka}
 
 \chapter{Experiments and results}
 \section{Base score prediction from vulnerability description}
@@ -185,9 +185,9 @@ That is why SVR used approximately half of the training data, 30k samples, and 6
 10k samples were used to fine-tune the hyperparameters. \\
 All samples taken from the initial dataset were stratified with regard to the Base score, that is, the data was chosen in such a way, that the Base score values follow a uniform distribution.\\
 Vulnerability description tokens are transformed into vectors and then summarized in order to map one vector to one description.
-These vectors are then scaled using the StandardScaler's function .fit\_transform(X,y), which first fits the input data to the output feature, and then scales it.\\
+These vectors are then scaled using the StandardScaler's function fit\_transform, which first fits the input data to the output feature, and then scales it.\\
 Parameter fine-tuning is then performed by BayesSearchCV, the function from \texttt{skopt} library. The kernel was set to rbf, because the SVR linear kernel is too slow for large datasets.\\
-Bayes Search optimized the following hyperparameters:
+The optimized hyperparameters are shown in Table 5.1.
 \begin{table}[h!]
 	\parbox{.45\linewidth}{
 	\centering
@@ -221,6 +221,11 @@ Bayes Search optimized the following hyperparameters:
 	\label{table:4}
 }
 \end{table}
+
+In Table 5.2., the results of the SVR model are shown.
+The coefficient of determination is the score of correlation between two values. Its maximum value is 1, which shows the perfect correlation.
+The obtained result shows low level of correlation, which means the SVR model did not perform well.
+
 \subsection{Linear Support Vector Regression}
 Linear SVR used the entire dataset. \\
 Again, the BayesSearchCV was used to optimize the hyperparameters.\\
@@ -257,9 +262,12 @@ Because the number of samples was greater than the number of features, the loss 
 		\label{table:6}
 	}
 \end{table}
+
+In Table 5.4, we see even worse results obtained by Linear Support Vector Regression.
+The Maximum Residual Error is almost as large as the range of the base score, which suggests that this model should not be used to predict the score.
+
 \subsection{Stochastic Gradient Descent Regressor}
-SGDRegressor used the entire dataset as well. \\
-Bayes Search optimized the hyperparameteres:
+SGDRegressor used the entire dataset as well. Bayes Search optimized the hyperparameteres.
 \begin{table}[h!]
 	\parbox{.45\linewidth}{
 		\centering
@@ -293,6 +301,9 @@ Bayes Search optimized the hyperparameteres:
 		\label{table:8}
 	}
 \end{table}
+
+In Table 5.6, we see that SGD Regressor similarly failed, with the coefficient of determination of only 0.278.
+
 \subsection{BERT Regressor}
 The BERT fine-tuning was done with PyTorch.\\
 The library \texttt{transformers} is used to import the tokenizer and BertModel in order to create a class BertRegressor.
@@ -336,11 +347,13 @@ The model was trained for three epochs.
 	\label{table:10}
 \end{table}
 
+In the Table 5.8, we see that BERT Regressor performed better than any other model, but only by a small margin compared to SVR.
+
 \section{Base score submetrics classification}
 The goal of this experiment was to discover at what level of accuracy can we predict the submetrics of the Base score, having the vulnerability description as the input.
 \subsection{Baseline}
 The Support Vector Classifier with default parameters was used as a baseline model for this prediction.\\
-The description tokens were converted into vectors, and the vectors were summarized just like in SVR.\\
+The description tokens were converted into vectors, and the vectors were summarized just like in SVR.
 
 \subsection{BERT Classification}
 The fine-tuning was performed with PyTorch.
@@ -382,6 +395,7 @@ Different models approach text tokens differently, so it is not clear in which w
 In order to achieve better models, the descriptions should be preprocessed in many different ways, and results should be compared.
 An increase in the number of epochs in the BERT Regressor could make the result more accurate. 
 \bibliography{literatura.bib}
+
 \bibliographystyle{plainnat}
 
 

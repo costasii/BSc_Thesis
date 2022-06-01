@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.10.24)  1 JUN 2022 18:17
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.10.24)  1 JUN 2022 19:45
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -412,17 +412,12 @@ Chapter 3.
 ] [5]
 Chapter 4.
 
-Underfull \hbox (badness 10000) in paragraph at lines 124--125
+Underfull \hbox (badness 10000) in paragraph at lines 124--127
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 126--131
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 132--133
+Underfull \hbox (badness 10000) in paragraph at lines 128--133
 
  []
 
@@ -433,69 +428,80 @@ Underfull \hbox (badness 10000) in paragraph at lines 134--137
 
 [6
 
-] [7] [8] [9]
+]
+Underfull \hbox (badness 10000) in paragraph at lines 147--147
+[][]$\T1/pcr/m/n/10 https : / / scikit-[]learn . org / stable / modules / gener
+ated / sklearn . svm .
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 148--148
+[][]$\T1/pcr/m/n/10 https : / / scikit-[]learn . org / stable / modules / gener
+ated / sklearn . linear _
+ []
+
+[7] [8] [9]
 Chapter 5.
 
 Overfull \hbox (52.30908pt too wide) in paragraph at lines 222--222
  [][] 
  []
 
-
-Overfull \hbox (52.30908pt too wide) in paragraph at lines 258--258
- [][] 
- []
-
 [10
 
 ]
-Underfull \hbox (badness 6526) in paragraph at lines 278--278
+Overfull \hbox (52.30908pt too wide) in paragraph at lines 263--263
+ [][] 
+ []
+
+
+Underfull \hbox (badness 6526) in paragraph at lines 286--286
 []\T1/ptm/b/n/10.95 Table 5.5: |\T1/ptm/m/n/10.95 Hy-per-pa-ram-e-teres for SG-
 
  []
 
 
-Overfull \hbox (52.30908pt too wide) in paragraph at lines 294--294
+Overfull \hbox (52.30908pt too wide) in paragraph at lines 302--302
  [][] 
  []
 
-[11]
-Underfull \hbox (badness 10000) in paragraph at lines 342--344
+[11] [12]
 
- []
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[12] [13]
+[13] [14]
 Chapter 6.
 
-Underfull \hbox (badness 10000) in paragraph at lines 374--375
+Underfull \hbox (badness 10000) in paragraph at lines 387--388
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 376--380
+Underfull \hbox (badness 10000) in paragraph at lines 389--393
 
  []
 
-(./final-thesis.bbl [14
+(./final-thesis.bbl [15
 
-]) [15
+] [16
 
-] (./final-thesis.lof)
+]) [17] (./final-thesis.lof)
 \tf@lof=\write4
 \openout4 = `final-thesis.lof'.
 
- [16
+ [18
 
-] [17]
+] [19]
 (./final-thesis.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 6594 strings out of 478579
- 98872 string characters out of 5857457
- 426597 words of memory out of 5000000
- 24382 multiletter control sequences out of 15000+600000
+ 6621 strings out of 478579
+ 99256 string characters out of 5857457
+ 427095 words of memory out of 5000000
+ 24409 multiletter control sequences out of 15000+600000
  468528 words of font info for 102 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  72i,11n,80p,702b,383s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -507,10 +513,10 @@ e1/urw/courier/ucrro8a.pfb><c:/texlive/2021/texmf-dist/fonts/type1/urw/helvetic
 f-dist/fonts/type1/urw/times/utmr8a.pfb><c:/texlive/2021/texmf-dist/fonts/type1
 /urw/times/utmr8a.pfb><c:/texlive/2021/texmf-dist/fonts/type1/urw/times/utmri8a
 .pfb>
-Output written on final-thesis.pdf (22 pages, 129189 bytes).
+Output written on final-thesis.pdf (24 pages, 134026 bytes).
 PDF statistics:
- 116 PDF objects out of 1000 (max. 8388607)
- 75 compressed objects within 1 object stream
+ 122 PDF objects out of 1000 (max. 8388607)
+ 79 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
