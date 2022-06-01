@@ -24,7 +24,7 @@
 \contentsline {subsection}{\numberline {5.1.5}Results comparison}{12}{}%
 \contentsline {section}{\numberline {5.2}Base score submetrics classification}{13}{}%
 \contentsline {subsection}{\numberline {5.2.1}Baseline}{13}{}%
-\contentsline {subsection}{\numberline {5.2.2}BERT Classification}{13}{}%
-\contentsline {subsection}{\numberline {5.2.3}Results comparison}{13}{}%
-\contentsline {chapter}{\numberline {6}Conclusion}{15}{}%
-\contentsline {chapter}{Bibliography}{16}{}%
+\contentsline {subsection}{\numberline {5.2.2}BERT Classification}{14}{}%
+\contentsline {section}{\numberline {5.3}Connecting two experiments}{16}{}%
+\contentsline {chapter}{\numberline {6}Conclusion}{17}{}%
+\contentsline {chapter}{Bibliography}{18}{}%

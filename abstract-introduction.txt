@@ -1,9 +1,11 @@
 ABSTRACT
 
-Cyber attacks are a problem of all users of computer systems. Prioritization and evaluation of threats can be difficult and costly. The Common Vulnerability Scoring System (CVSS) score is used to assess the danger of a threat. CVSS is assigned by experts. 
-With help of NLP methods it is possible to predict CVSS score from description of a threat.
-Using Support Vector Regression --- 
-Compared to BERT ---
+Cyber attacks are a problem for all users of computer systems. Prioritization and evaluation of threats can be difficult and costly. The Common Vulnerability Scoring System (CVSS) score is used to assess the danger of a threat. CVSS is assigned by experts. 
+With help of NLP methods, it is possible to predict CVSS score from the description of a vulnerability.
+Support Vector Regression and BERT Regressor were used to directly predict the base component of CVSS. The models performed quite poorly.
+On the other hand, it is possible to predict the score submetrics in the accuracy range of 0.90-0.95 using the BERT classification model. This would be at least one step towards automated prediction of CVSS.
+
+
 
 
 

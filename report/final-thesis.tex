@@ -1,27 +1,24 @@
 \documentclass[times, utf8, zavrsni, english]{fer}
 \usepackage{booktabs}
-\usepackage{graphicx}
 \usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc} 
 \usepackage[english]{babel}
-\graphicspath{ {./images/} }
 \usepackage{natbib}
 \bibliographystyle{abbrvnat}
+\usepackage{multirow}
 
 \begin{document}
 
-% TODO: Navedite broj rada.
+
 \thesisnumber{596}
 
-% TODO: Navedite naslov rada.
+
 \title{Application of machine learning to threat classification from cybersecurity records}
 
-% TODO: Navedite svoje ime i prezime.
+
 \author{Mirta Medak}
 
 \maketitle
-
-% Ispis stranice s napomenom o umetanju izvornika rada. Uklonite naredbu \izvornik ako želite izbaciti tu stranicu.
-\izvornik
 
 % Dodavanje zahvale ili prazne stranice. Ako ne želite dodati zahvalu, naredbu ostavite radi prazne stranice.
 \zahvala{}
@@ -49,7 +46,7 @@ BERT is computationally expensive, and sometimes it is advised to try simpler mo
 \noindent In the second chapter, the studies with similar concerns are mentioned. The details about the dataset used are explained in the third chapter. The simplified theory behind the models used is shown in the fourth chapter. The following are the explanations of the experiments, together with the results and their comparisons. 
 
 \chapter{Related work}
-Inspiration to do this research has been given by the study of Janamian et al., 2021, who have developed an application that takes any vulnerability description and gives its CVSS score. They used BERT classification to predict the Base score submetrics. The CVSS score was then calculated using the hard-coded CVSS formula and the predicted submetrics results. They have achieved accuracy in the 0.90 range. \\
+Inspiration to do this research has been given by the study of Janamian et al., 2021, who have developed an application that takes any vulnerability description and gives its CVSS score. They used BERT classification to predict the Base score submetrics. The CVSS score was then calculated using the hard-coded CVSS formula and the predicted submetrics results. They have achieved accuracy in the 0.90 range. Using the predicted submetrics, they computed the CVSS score using the CVSS formula, and got the result of R2 = 0.505.\\
 
 \noindent Another study developing an objective method of CVSS score calculation, written by Khazaei et al. in 2015, used Support Vector Machine, Random-Forest, and fuzzy system. Their model's accuracy was around 0.86. \\
 
@@ -224,7 +221,7 @@ The optimized hyperparameters are shown in Table 5.1.
 
 In Table 5.2., the results of the SVR model are shown.
 The coefficient of determination is the score of correlation between two values. Its maximum value is 1, which shows the perfect correlation.
-The obtained result shows low level of correlation, which means the SVR model did not perform well.
+The obtained result shows medium level of correlation.
 
 \subsection{Linear Support Vector Regression}
 Linear SVR used the entire dataset. \\
@@ -263,7 +260,7 @@ Because the number of samples was greater than the number of features, the loss 
 	}
 \end{table}
 
-In Table 5.4, we see even worse results obtained by Linear Support Vector Regression.
+In Table 5.4, we see worse results obtained by Linear Support Vector Regression.
 The Maximum Residual Error is almost as large as the range of the base score, which suggests that this model should not be used to predict the score.
 
 \subsection{Stochastic Gradient Descent Regressor}
@@ -355,41 +352,160 @@ The goal of this experiment was to discover at what level of accuracy can we pre
 The Support Vector Classifier with default parameters was used as a baseline model for this prediction.\\
 The description tokens were converted into vectors, and the vectors were summarized just like in SVR.
 
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{| c | c | c | c | c | c | c |} 
+		\hline
+		Score Submetric & Value & precision & recall & f1-score & support & accuracy \\ [0.5ex] 
+		\hline\hline
+		\multirow{4}{*}{Attack Vector} & ADJACENT NETWORK & 0.00 & 0.00 & 0.00 & 338 & \multirow{4}{*}{0.82} \\ 
+										& LOCAL & 0.84 & 0.46 & 0.60 & 3625 & \\ 
+										& NETWORK & 0.82 & 0.98 & 0.89 & 11252 & \\ 
+										& PHYSICAL & 0.00 & 0.00 & 0.00 & 189 & \\ 
+		\hline
+		\multirow{2}{*}{Attack Complexity} & HIGH & 0.94 & 0.33 & 0.49 & 1268 & \multirow{2}{*}{0.94} \\ 
+											& LOW & 0.94 & 1.00 & 0.97 & 14136 & \\ 
+		\hline
+		\multirow{3}{*}{Privileges Required} & HIGH & 0.87 & 0.27 & 0.41 & 1024 & \multirow{3}{*}{0.82} \\ 
+											& LOW & 0.77 & 0.63 & 0.69 & 4091 & \\ 
+											& NONE & 0.84 & 0.96 & 0.89 & 10289 & \\ 
+		\hline
+		\multirow{2}{*}{User Interaction} & NONE & 0.90 & 0.96 & 0.93 & 9779 & \multirow{2}{*}{0.91} \\ 
+										& REQUIRED & 0.94 & 1.00 & 0.97 & 5634 & \\ 
+		\hline
+		\multirow{2}{*}{Scope} & CHANGED & 0.97 & 0.77 & 0.86 & 2611 & \multirow{2}{*}{0.96} \\ 
+											& UNCHANGED & 0.96 & 1.00 & 0.97 & 12793 & \\ 
+		\hline
+		\multirow{3}{*}{Confidentiality} & HIGH & 0.81 & 0.96 & 0.88 & 9095 & \multirow{3}{*}{0.84} \\ 
+											& LOW & 0.93 & 0.68 & 0.78 & 2957 & \\ 
+											& NONE & 0.88 & 0.65 & 0.74 & 3352 & \\ 
+		\hline
+		\multirow{3}{*}{Integrity} & HIGH & 0.83 & 0.92 & 0.87 & 7895 & \multirow{3}{*}{0.85} \\ 
+									& LOW & 0.95 & 0.77 & 0.85 & 2693 & \\ 
+									& NONE & 0.85 & 0.79 & 0.82 & 4816 & \\ 
+		\hline
+		\multirow{3}{*}{Availability} & HIGH & 0.88 & 0.92 & 0.90 & 8994 & \multirow{3}{*}{0.88} \\ 
+		& LOW & 0.88 & 0.27 & 0.42 & 413 & \\ 
+		& NONE & 0.87 & 0.85 & 0.86 & 5997 & \\ 
+		\hline
+		
+	\end{tabular}
+	\caption{Baseline results}
+	\label{table:11}
+\end{table}
+
+In Table 5.9, the results of the Support Vector Classifier results are shown. 
+
+Precision metric is accuracy of positive predictions. Recall is the ability of a model to find all positive instances. F1 score is a weighted harmonic mean of precision and recall. The best f1 score is 1.0, and the worst is 0.0. Support is the number of examples of the corresponding value in the tranining dataset.
+The accuracy of the model is the percentage of correctly predicted values. \\
+
+For some values, all the metrics are equal to 0.00. This can happen when there is too little data for the classifier to evaluate its performance. Also, it is noticeable that the accuracy of the model is overall higher in the submetrics with only two values, even when the dataset is not balanced.
+
+
 \subsection{BERT Classification}
 The fine-tuning was performed with PyTorch.
 Firstly, the dataset was divided into a test set (20\%) and the rest set, which was divided into a training set (80\%) and a development set.\\
 From the \texttt{transformers} library, BertForSequenceClassification made up the top layer of the BERT model.\\
-In the function \texttt{convert\_examples\_to\_inputs}\textit{(X, y, label2idx, max\_seq\_len, tokenizer)}, a list of token ids, segment ids, and input mask lists were created. Longer descriptions than max\_seq\_len were truncated, while the shorter ones were padded. \\
+In the function convert\_examples\_to\_inputs\textit{(X, y, label2idx, max\_seq\_len, tokenizer)}, a list of token ids, segment ids, and input mask lists were created. Longer descriptions than max\_seq\_len were truncated, while the shorter ones were padded. \\
 Usually, batch size is 16 or 32, in this model the value of batch size is 16.
 The AdamW optimizer with a base learning rate of 5e-5  is used. The WarmupLinearScheduler linearly increases the learning rate during the warmup stage. During the training, the learning rate slowly decreases again.\\
 The model was trained for three epochs.
 At each epoch, the model is trained on the training set and evaluated on the development set. \\
-To perform the final evaluation, the model is given test data that has never been seen before, and it predicts the submetric values.
+To perform the final evaluation, the model is given test data that has never been seen before, and it predicts the submetric values. \\
 
-\subsection{Results comparison}
 \begin{table}[h!]
 	\centering
-	\begin{tabular}{|| c | c ||} 
+	\begin{tabular}{| c | c | c | c | c | c | c |} 
 		\hline
-		Model & R2 score \\ [0.5ex] 
+		Score Submetric & Value & precision & recall & f1-score & support & accuracy \\ [0.5ex] 
 		\hline\hline
-		SVR & 0.503  \\ \hline
-		LinearSVR & 0.302 \\ \hline
-		SGDRegressor & 0.278 \\ \hline
-		\textbf{BERT Regressor} & \textbf{0.561} \\ 
-		
+		\multirow{4}{*}{Attack Vector} & ADJACENT NETWORK & 0.84 & 0.46 & 0.60 & 3625 & \multirow{4}{*}{0.92} \\ 
+		& NETWORK & 0.94 & 0.97 & 0.95 & 11267 &
+		 \\ 
+		& LOCAL & 0.89 & 0.84 & 0.86 & 3632 & \\ 
+		& PHYSICAL & 0.83 & 0.67 & 0.74 & 178 & \\ 
 		\hline
+		\multirow{2}{*}{Attack Complexity} & HIGH & 0.80 & 0.55 & 0.65 & 1234 & \multirow{2}{*}{0.95} \\ 
+		& LOW & 0.96 & 0.99 & 0.97 & 14170 & \\ 
+		\hline
+		\multirow{3}{*}{Privileges Required} & NONE & 0.91 & 0.94 & 0.92 & 10302 & \multirow{3}{*}{0.88} \\ 
+		& LOW & 0.81 & 0.78 & 0.80 & 4095 & \\ 
+		& HIGH & 0.83 & 0.60 & 0.70 & 1007 & \\ 
+		\hline
+		\multirow{2}{*}{User Interaction} & NONE & 0.94 & 0.96 & 0.95 & 9932 & \multirow{2}{*}{0.94} \\ 
+		& REQUIRED & 0.93 & 0.89 & 0.91 & 5472 & \\ 
+		\hline
+		\multirow{2}{*}{Scope} & CHANGED & 0.95 & 0.83 & 0.89 & 2556 & \multirow{2}{*}{0.97} \\ 
+		& UNCHANGED & 0.97 & 0.99 & 0.98 & 12848 & \\ 
+		\hline
+		\multirow{3}{*}{Confidentiality} & HIGH & 0.89 & 0.93 & 0.91 & 9069 & \multirow{3}{*}{0.88} \\ 
+		& LOW & 0.88 & 0.78 & 0.83 & 2980 & \\ 
+		& NONE & 0.86 & 0.84 & 0.85 & 3355 & \\ 
+		\hline
+		\multirow{3}{*}{Integrity} & HIGH & 0.90 & 0.92 & 0.91 & 7860 & \multirow{3}{*}{0.90} \\ 
+		& LOW & 0.92 & 0.82 & 0.87 & 2737 & \\ 
+		& NONE & 0.89 & 0.90 & 0.89 & 4807 & \\ 
+		\hline
+		\multirow{3}{*}{Availability} & HIGH & 0.92 & 0.93 & 0.93 & 8984 & \multirow{3}{*}{0.91} \\ 
+		& LOW & 0.76 & 0.32 & 0.45 & 407 & \\ 
+		& NONE & 0.89 & 0.92 & 0.90 & 6013 & \\ 
+		\hline
+		
 	\end{tabular}
-	\caption{Models comparison}
-	\label{table:10}
+	\caption{BERT Classification results}
+	\label{table:12}
+\end{table} 
+
+
+\noindent In Table 5.10, results of the BERT Classifier are shown.
+We can see overall better performance of BERT than of the baseline model.
+Even for values that do not have large support, the classifier is performing decently. 
+Again, the accuracy of the model is higher for the submetrics with two values.
+It is interesting that Confidentiality impact submetric has a balanced dataset, yet the lowest accuracy rank.
+
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{| c | c | c | c|} 
+		\hline
+		Score Submetric & Baseline accuracy & BERT accuracy & Vulnerwatch accuracy \\ [0.5ex] 
+		\hline\hline
+		Attack Vector & 0.82 & 0.92 & 0.9257\\
+		\hline
+		Attack Complexity & 0.94 & 0.95 & 0.9518 \\
+		\hline
+		Privileges Required & 0.82 & 0.88 & 0.8806 \\
+		\hline
+		User Interaction & 0.91 & 0.94 & 0.9374\\
+		\hline
+		Scope & 0.96 & 0.97 & 0.9670 \\
+		\hline
+		Confidentiality & 0.84 & 0.88 & 0.8915\\
+		\hline
+		Integrity & 0.85 & 0.90 & 0.9041\\
+		\hline
+		Availability & 0.88 & 0.91 & 0.9108 \\
+		\hline
+		
+	\end{tabular}
+	\caption{Results comparison}
+	\label{table:13}
 \end{table}
+ \clearpage
+\noindent Finally, the two models are compared by their accuracy scores in Table 5.11.
+As expected, BERT has performed better than the SVM for all submetrics.
+The Vulnerwatch accuracy comes from the research that inspired this thesis \citep{vulnerwatch}. The achieved results are very similar to those from the reserch. This confirms that the BERT model performed well, with only two epochs of training.
+
+\section{Connecting two experiments}
+In the Vulnerwatch research, the authors predicted the submetrics values, and then used them as parameters to calculate the score using the CVSS formula. They have come to the coefficient of determination of 0.505 for the base component \citep{vulnerwatch}.
+The SVR model predicted the base score with R2 score of 0.503, and BERT Regressor with R2 score of 0.561.
+Since the authors of the mentioned research used their model as a product, it is fair to conclude that BERT Regressor performed well, even better than some of the existent methods.
+
 \chapter{Conclusion}
 No system is without an error. As long as there is a flaw in the system, there exists a threat. The number of various flaws and threats continues to grow. This problem was systematically approached by MITRE and NIST, which maintain the database of Common Vulnerability and Exposure (CVE) records. Only a part of the records have been assigned their severity ranking, Common Vulnerability Scoring System (CVSS) score. This score helps in the risk assessment of the vulnerability. The CVSS base score is a result of eight submetrics, the values of which are assigned by human experts. Computing a CVSS score is a long and costly process, and it can be subjective. \\
 
 In this research, more objective ways to get the CVSS score have been examined. Natural language processing methods were used to predict the CVSS base score directly from the vulnerability description.\\
-Support Vector Regression and Bert Regressor have achieved the best results in this experiment, having the coefficients of determination R2(SVR) = 0.503 and R2(Bert) = 0.561. This implies that even the best models were not very accurate, and modifications ought to be done. Due to computational complexity, the training of both models lasted for a long time. \\
-If the direct prediction does not work accurately, it is possible to predict the base score submetrics. Depending on the values of the submetrics the base score is calculated. The Support Vector Classifier was used as a baseline model. We can see the accuracy of 85-90 \%. BERT Sequence Classifier proved to be 90-95 \% accurate in these predictions. The conclusion is that we can use even less computationally expensive models, such as SVC, to achieve a high degree of accuracy in this task.\\
-Compared to Vulnerwatch results...\\
+Support Vector Regression and Bert Regressor have achieved the best results in this experiment, having the coefficients of determination R2(SVR) = 0.503 and R2(Bert) = 0.561. Comparing this result with the research by \citep{vulnerwatch}, R2 = 0.505, we can say that the models performed well, and could be used as a helping method for assignment of CVSS score. \\
+If the direct prediction is not sufficiently accurate, it is possible to predict the base score submetrics. Depending on the values of the submetrics the base score is calculated. The Support Vector Classifier was used as a baseline model. We can see the accuracy of 85-90 \%. BERT Sequence Classifier proved to be 90-95 \% accurate in these predictions. The conclusion is that we can use even less computationally expensive models, such as SVC, to achieve a high degree of accuracy in this task.\\
 
 Different models approach text tokens differently, so it is not clear in which way the text should be preprocessed. 
 In order to achieve better models, the descriptions should be preprocessed in many different ways, and results should be compared.
@@ -398,19 +514,25 @@ An increase in the number of epochs in the BERT Regressor could make the result 
 
 \bibliographystyle{plainnat}
 
-
-\listoffigures
+\listoftables
 \begin{abstract}
-Abstract.
+Cyber attacks are a problem for all users of computer systems. Prioritization and evaluation of threats can be difficult and costly. The Common Vulnerability Scoring System (CVSS) score is used to assess the danger of a threat. CVSS is assigned by experts. 
+With help of NLP methods, it is possible to predict CVSS score from the description of a vulnerability.
+Support Vector Regression and BERT Regressor were used to directly predict the base component of CVSS. The models performed well compared to already existent methods, but there is space for improvement.
+On the other hand, it is possible to predict the score submetrics in the accuracy range of 0.90-0.95 using the BERT classification model. This would be at least one step towards automated prediction of CVSS.
 
-\keywords{Keywords.}
+
+\keywords{natural language processing, machine learning, Common Vulnerability and Exposure records, CVSS score, Support Vector Regression, BERT, transformers, BERT Regressor, BERT Classification, }
 \end{abstract}
 
 \hrtitle{Primjena strojnog učenja za klasifikaciju prijetnji iz zapisa o kibernetičkoj sigurnosti}
 \begin{sazetak}
-Sažetak na hrvatskom jeziku.
+Kibernetički ​​napadi veliki su problem za sve korisnike računalnih sustava. Procjena rizika kibernetičkih prijetnji može biti dugačak i skup proces. Za procjenu opasnosti od prijetnje koristi se ocjena Common Vulnerability Scoring System (CVSS). CVSS ranjivostima dodjeljuju stručnjaci.
+Uz pomoć metoda obrade prirodnog jezika moguće je predvidjeti CVSS iz opisa ranjivosti.
+Regresija potpornih vektora i BERT regresor korišteni su za izravno predviđanje osnovne komponente CVSS-a iz opisa. Regresijski modeli pokazali su se dovoljno uspješnima s obzirom na postojeće rezultate, ali postoji puno prostora za napredak.
+S druge strane, moguće je predvidjeti parametre CVSS-a u rasponu točnosti od 0,90-0,95 koristeći BERT klasifikacijski model. Ovaj rezultat pokazao je barem jedan korak prema automatiziranom predviđanju CVSS-a.
 
-\kljucnerijeci{Ključne riječi, odvojene zarezima.}
+\kljucnerijeci{obrada prirodnog jezika, strojno učenje, CVE zapisi, CVSS, Regresija potpornih vektora, BERT, transformeri, BERT za regresiju, BERT za klasifikaciju}
 \end{sazetak}
 
 \end{document}
