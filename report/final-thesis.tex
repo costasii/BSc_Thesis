@@ -1,12 +1,16 @@
 \documentclass[times, utf8, zavrsni, english]{fer}
 \usepackage{booktabs}
 \usepackage{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
 \graphicspath{ {./images/} }
+\usepackage{natbib}
+\bibliographystyle{abbrvnat}
 
 \begin{document}
 
 % TODO: Navedite broj rada.
-\thesisnumber{000}
+\thesisnumber{596}
 
 % TODO: Navedite naslov rada.
 \title{Application of machine learning to threat classification from cybersecurity records}
@@ -25,47 +29,35 @@
 \tableofcontents
 
 \chapter{Introduction}
-Every entity that is dependent on a computer system, from corporations to individuals, could be a subject to cyberattacks. \\
-In 2018 there were 80,000 cyberattacks per day or over 30 million attacks per year. [1] During the CoVid-19 pandemic, cybercrime went up 600 \%, as PurpleSec suggests. [2] \\
+Every entity that is dependent on a computer system, from corporations to individuals, could be a subject to cyberattacks. In 2020, it is approximated that cybercrime costed the global economy almost USD 1 trillion \citep{cremer}. \\
 As technology evolves, more various threats to its security emerge.
 Tracking, describing, and evaluating these threats is of use when developing defense systems and making business decisions. \\
-
-A \textbf{vulnerability} is a weakness in a computer system, that an attacker can exploit to execute malicious commands, access data in an unauthorized way, or perform other types of cyber attacks. [4,5] \\
-A \textbf{threat} is any circumstance or event which has the potential to compromise system security. [6] \\
-In order to tackle the cybersecurity problems in a more organized manner, a system of \emph{CVE (Common Vulnerability and Exposure)} has been developed. \\
-The \emph{MITRE Corporation} maintains a public database of an increasing number of CVE records. \\
+A \textbf{vulnerability} is a weakness in a computer system, that an attacker can exploit to execute malicious commands, access data in an unauthorized way, or perform other types of cyber attacks \citep{humayun}. \\
+A \textbf{threat} is any circumstance or event which has the potential to compromise system security \citep{FER}. \\
+In order to tackle the cybersecurity problems in a more organized manner, a system of \emph{Common Vulnerability and Exposure} (CVE) has been developed. The MITRE Corporation maintains a public database of an increasing number of CVE records.
 A CVE record includes an ID, a brief description of the vulnerability, and references.
+In order to manipulate and prioritize vulnerabilities in a system, the metric of the \emph{Common Vulnerability Scoring System} (CVSS) score is used. This metric estimates how "dangerous" exploitation of a vulnerability is. CVSS is an emerging standard of vulnerability comparison \citep{khazaei}. \\
+The CVSS score is computed using submetrics with descrete values that are assigned by experts. The weight of each submetric is hard-coded into a formula \citep{bozorgi}. Khazaei et al. show an important concern in their work: the CVSS calculation \textbf{can be subjective} \citep{khazaei}.
+Moreover, the annotation requires experts and time, which is prolonging the process and is costly.
+Sometimes, all of the information needed to compute CVSS scores may not be available. Many vulnerabilities aren't assigned the score at all. \citep{vulnerwatch}.\\
 
-In order to manipulate and prioritize vulnerabilities in a system, the metric of the Common Vulnerability Scoring System (CVSS) score is used. This metric estimates how "dangerous" exploitation of a vulnerability is. CVSS is an emerging standard of vulnerability comparison. [8] \\
-CVSS is divided in three groups: \emph{Base, Temporal and Environmental score}. 
-\textbf{Base Score} group shows the traits of the vulnerability that do not change over time and are not dependent on the environment. [9] Predicting the base score will be the subject of this research. \\
-
-\begin{figure}[h]
-	\caption{There are eight CVSS Base submetrics:}
-	\centering
-	\includegraphics[scale=0.25]{CVSS-Base-Metric-Group}
-\end{figure}
-Each submetric is assigned by experts. E. g., attack complexity can be assigned as High or Low. The submetrics values all add a different weight to the score. This ratio of how much each submetric matters, is decided by engineers. This formula is then used to compute the score. [Bozorgi et al.] \\
-Atefeh Khazaei et al. show an important concern in their work [8]: the CVSS calculation \textbf{can be subjective}.
-Moreover, the annotation requires experts and time, which is prolonging the process and is costly. \\
-Sometimes, all of the information needed to compute CVSS scores may not be available. Many vulnerabilities aren't assigned the score at all. [7, 10] \\
-That is why it would be helpful if CVSS score is automatically decided based on the description of the vulnerability.
-
-The goal of this research is to explore objective and automatic ways to obtain CVSS score. 
-NLP methods are used to predict the CVSS Base score by analyzing the description from the CVE record. \\
+The main subject of this research is predicting the CVSS score by analyzing the description of the vulnerability, taken from CVE records. \\
+This would be a more objective approach, and the process of obtaining the score would be cheaper and faster. \\
 BERT classification model has proven to be 90-95 \% accurate in predicting the submetrics using the description of the vulnerability. \\
-BERT is computationally expensive, and sometimes it is advised to try simpler models first, because they might work just as well. That is why Support Vector Regression has been used to predict CVSS score from description too.
+BERT is computationally expensive, and sometimes it is advised to try simpler models first, because they might work just as well. That is why Support Vector Regression and similar models were used to predict the score directly from the description.\\
+
+In the second chapter, the studies with similar concerns are mentioned. The details about the dataset used are explained in the third chapter. The simplified theory behind the models used is shown in the fourth chapter. The following are the explanations of the experiments, together with the results and their comparisons. 
 
 \chapter{Related work}
-Inspiration to do this research has been given by the study of Cook, Bryan, et al., who have developed an application that takes any vulnerability description and gives its CVSS score. [10] They used BERT classification to predict the Base score submetrics. The CVSS score was then calculated using the hard-coded CVSS formula and the predicted submetrics results. They have achieved accuracy in the 0.90 range. \\
+Inspiration to do this research has been given by the study of Janamian et al., 2021, who have developed an application that takes any vulnerability description and gives its CVSS score. They used BERT classification to predict the Base score submetrics. The CVSS score was then calculated using the hard-coded CVSS formula and the predicted submetrics results. They have achieved accuracy in the 0.90 range. \\
 
-Another study developing an objective method of CVSS score calculation, written by Khazaei et al. [], used Support Vector Machine, Random-Forest, and fuzzy system. Their model's accuracy was around 0.86. \\
+Another study developing an objective method of CVSS score calculation, written by Khazaei et al. in 2015, used Support Vector Machine, Random-Forest, and fuzzy system. Their model's accuracy was around 0.86. \\
 
-This problem was approached in detail by Bozorgi et al. [] Instead of predicting the CVSS score itself, they have developed a new classification system, using various features of the vulnerability. \\
+This problem was approached in detail by Bozorgi et al., 2010.  Instead of predicting the CVSS score itself, they have developed a new classification system, using various features of the vulnerability. \\
 
 \chapter{Data}
 \section{Data acquisition}
-Dataset used has been acquired and prepared by Cook et al., when used in their work \emph{Using NLP to Predict the Severity of Cybersecurity Vulnerabilities, 2021.}
+Dataset used has been acquired and prepared by Janamian et al., when used in their work \emph{Using NLP to Predict the Severity of Cybersecurity Vulnerabilities, 2021.} \citep{vulnerwatch}.
 Most of the data is publicly available and maintained by the MITRE organization and the National Institute of Standards of Technology. \\
 From the cited research, we find out that at the beginning of 2021, only 50 \% of CVE records had a CVSS score assigned. \\
 The datasets were created by human experts and therefore didn't require much preparation or preprocessing. 
@@ -100,8 +92,11 @@ The entire dataset counts 77,020 entries. It is split into training set (80\%) a
 \end{table}
 
 The first eight entries of Table 3.1. correspond to eight submetrics of CVSS base score.
+The description is used as input in all performed experiments.
+The base\_score is a subgroup of CVSS score, which is most widely used when describing the severity of the vulnerability.
+
 \section{Dataset analysis}
-According to CVSS v3.0 Ratings [nistgovstranica] the severity is classified in the following ranges:
+According to CVSS v3.0 Ratings the severity is classified in the following ranges.\footnote{\url{https://nvd.nist.gov/vuln-metrics/cvss}}
 \begin{table}[h!]
 	\centering
 	\begin{tabular}{| c c c ||} 
@@ -119,7 +114,8 @@ According to CVSS v3.0 Ratings [nistgovstranica] the severity is classified in t
 	\caption{CVSS range classification and number of examples in each class (from the training set)}
 	\label{table:2}
 \end{table}
-From Table 2. we can clearly see that the medium to high scores prevail. 
+
+From Table 3.2. we can clearly see that the medium to high scores prevail in the training set.
 
 \chapter{Models}
 

@@ -10,9 +10,8 @@ Compared to BERT ---
 
 1.INTRODUCTION
 
-Every entity that is dependent on a computer system, from corporations to individuals, could be a subject to cyber attacks. 
-In 2018 there were 80,000 cyber attacks per day or over 30 million attacks per year. (1)
-During the CoVid-19 pandemic, the cybercrime went up 600%, as PurpleSec suggests. (2)
+Every entity that is dependent on a computer system, especially if connected to the Internet, could be a subject to cyber attacks. 
+In 2020, it is approximated that cybercrime costed the global economy almost USD 1 trillion (Cremer et al. 2022).
 As technology evolves, more various threats to its security emerge.
 Tracking, describing, and evaluating these threats is of use when developing defense systems and making business decisions.
 

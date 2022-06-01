@@ -1,8 +1,50 @@
-\begin{thebibliography}{0}
+\begin{thebibliography}{6}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
   \providecommand{\doi}[1]{doi: #1}\else
   \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Bozorgi et~al.(2010)Bozorgi, Saul, Savage, and Voelker]{bozorgi}
+M.~Bozorgi, L.~Saul, S.~Savage, and G.~Voelker.
+\newblock Beyond heuristics: Learning to classify vulnerabilities and predict
+  exploits.
+\newblock pages 105--114, 06 2010.
+\newblock \doi{10.1145/1835804.1835821}.
+
+\bibitem[Cremer(2022)]{cremer}
+S.~B. F. M. e.~a. Cremer, F.
+\newblock Cyber risk and cybersecurity: a systematic review of data
+  availability.
+\newblock 2022.
+\newblock URL \url{https://doi.org/10.1057/s41288-022-00266-6}.
+
+\bibitem[Humayun et~al.(2020)Humayun, Niazi, Zaman, Alshayeb, and
+  Mahmood]{humayun}
+M.~Humayun, M.~Niazi, N.~Zaman, M.~Alshayeb, and S.~Mahmood.
+\newblock Cyber security threats and vulnerabilities: A systematic mapping
+  study.
+\newblock \emph{Arabian Journal for Science and Engineering}, 45, 01 2020.
+\newblock \doi{10.1007/s13369-019-04319-2}.
+
+\bibitem[Janamian(2021)]{vulnerwatch}
+L.~L.~U. Janamian, Cook.
+\newblock Using nlp to predict the severity of cybersecurity vulnerabilities.
+\newblock 2021.
+\newblock URL
+  \url{https://github.com/twlim1/VulnerWatch/blob/master/reports/Report.pdf}.
+
+\bibitem[Khazaei et~al.(2015)Khazaei, Ghasemzadeh, and Derhami]{khazaei}
+A.~Khazaei, M.~Ghasemzadeh, and V.~Derhami.
+\newblock An automatic method for cvss score prediction using vulnerabilities
+  description.
+\newblock \emph{Journal of Intelligent and Fuzzy Systems}, 30:\penalty0 89--96,
+  08 2015.
+\newblock \doi{10.3233/IFS-151733}.
+
+\bibitem[Đerek(2021)]{FER}
+M.~V. Đerek, Groš.
+\newblock Izvori prijetnji i prijetnje.
+\newblock Faculty of Electrical Engineering and Computer Science, Zagreb, 2021.
 
 \end{thebibliography}
