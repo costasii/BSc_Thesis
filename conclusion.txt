@@ -1,0 +1,10 @@
+No system is without an error. As long as there is a flaw in the system, there exists a threat. The number of various flaws and threats continues to grow. This problem was systematically approached by MITRE and NIST, which maintain the database of Common Vulnerability and Exposure (CVE) records. Only a part of the records have been assigned their severity ranking, Common Vulnerability Scoring System (CVSS) score. This score helps in the risk assessment of the vulnerability. The CVSS base score is a result of eight submetrics, the values of which are assigned by human experts. Computing a CVSS score is a long and costly process, and it can be subjective.
+
+In this research, more objective ways to get the CVSS score have been examined. Natural language processing methods were used to predict the CVSS base score directly from the vulnerability description. 
+Support Vector Regression and Bert Regressor have achieved the best results in this experiment, having the coefficients of determination R2(SVR) = 0.503 and R2(Bert) = 0.561. This implies that even the best models were not very accurate, and modifications ought to be done. Due to computational complexity, the training of both models lasted for a long time. 
+If the direct prediction does not work accurately, it is possible to predict the base score submetrics. Depending on the values of the submetrics the base score is calculated. The Support Vector Classifier was used as a baseline model. We can see the accuracy of 85-90 %. BERT Sequence Classifier proved to be 90-95 % accurate in these predictions. The conclusion is that we can use even less computationally expensive models, such as SVC, to achieve a high degree of accuracy in this task.
+Compared to Vulnerwatch results...
+
+Different models approach text tokens differently, so it is not clear in which way the text should be preprocessed. 
+In order to achieve better models, the descriptions should be preprocessed in many different ways, and results should be compared.
+An increase in the number of epochs in the BERT Regressor could make the result more accurate. 

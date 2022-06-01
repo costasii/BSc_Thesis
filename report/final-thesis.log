@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.10.24)  1 JUN 2022 02:26
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.10.24)  1 JUN 2022 10:50
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -262,7 +262,7 @@ File: l3backend-pdftex.def 2021-10-18 L3 backend support: PDF output (pdfTeX)
 )
 (./final-thesis.aux
 
-LaTeX Warning: Label `table:9' multiply defined.
+LaTeX Warning: Label `table:10' multiply defined.
 
 )
 \openout1 = `final-thesis.aux'.
@@ -467,8 +467,23 @@ Overfull \hbox (52.30908pt too wide) in paragraph at lines 298--298
  [][] 
  []
 
-[11] [12] [13]
+[11]
+Underfull \hbox (badness 10000) in paragraph at lines 346--348
+
+ []
+
+[12] [13]
 Chapter 6.
+
+Underfull \hbox (badness 10000) in paragraph at lines 378--379
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 380--384
+
+ []
+
 (./final-thesis.bbl [14
 
 ]
@@ -489,13 +504,13 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 6579 strings out of 478579
- 98950 string characters out of 5857457
- 426263 words of memory out of 5000000
- 24369 multiletter control sequences out of 15000+600000
+ 6580 strings out of 478579
+ 98960 string characters out of 5857457
+ 426274 words of memory out of 5000000
+ 24370 multiletter control sequences out of 15000+600000
  460174 words of font info for 92 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 72i,11n,80p,477b,383s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 72i,11n,80p,710b,383s stack positions out of 5000i,500n,10000p,200000b,80000s
 {c:/texlive/2021/texmf-dist/fonts/enc/dvips/base/8r.enc}<c:/texlive/2021/texm
 f-dist/fonts/type1/urw/courier/ucrr8a.pfb><c:/texlive/2021/texmf-dist/fonts/typ
 e1/urw/courier/ucrro8a.pfb><c:/texlive/2021/texmf-dist/fonts/type1/urw/helvetic
@@ -504,7 +519,7 @@ e1/urw/courier/ucrro8a.pfb><c:/texlive/2021/texmf-dist/fonts/type1/urw/helvetic
 f-dist/fonts/type1/urw/times/utmr8a.pfb><c:/texlive/2021/texmf-dist/fonts/type1
 /urw/times/utmr8a.pfb><c:/texlive/2021/texmf-dist/fonts/type1/urw/times/utmri8a
 .pfb>
-Output written on final-thesis.pdf (22 pages, 139778 bytes).
+Output written on final-thesis.pdf (22 pages, 142150 bytes).
 PDF statistics:
  118 PDF objects out of 1000 (max. 8388607)
  75 compressed objects within 1 object stream
