@@ -1,0 +1,53 @@
+BERT Architecture
+=================
+
+Bidirectional Encoder Representations from Transformers is a fairly new and revolutionary language representation model, developed by Google (Delvin et al. 2018) [20].
+BERT is fundamentally a transformer language model.
+Developed by Vaswani et al., 2017, the Transformer is a network architecture based on attention mechanisms. Until the invention of transformers, more complicated models such as recurrent and convolutional neural networks with an encoder and a decoder were used to solve translation tasks. The new model improved translation, sequence modeling, and other similar tasks. [21]
+The transformer architecture is based on an encoder that maps an input to a continuous representation, and a decoder that produces the output using the encoded representation, one element at a time. At every step, the model takes into account the previously encoded symbols by including them in the input. This way, the model considers the context. [21]
+By definition, an attention function is mapping vectors as a weighted sum to an output, where the vectors correspond to a query, keys, and values. 
+The novelty in the BERT model is the bidirectional encoder, that is, the incorporation of context from both directions. This matters significantly in token-level tasks, such as question answering, token classification, etc. In order to perform bidirectional pre-training, BERT uses masked language models. [20] 
+A great advantage of BERT over other language models is that the model has been already pre-trained on large text corpora. This model can then be fine-tuned with only one more output layer, and this model can be applied to a variety of tasks. [20] This framework is called transfer learning. 
+When implementing BERT to a specific task, we can use an already pre-trained model. Our task is then to fine-tune it.
+Fine-tuning is in fact putting data through a transformer self-attention mechanism.
+
+GENERAL DATA PREPARATION FOR BERT
+=================================
+The dataset has to be split into train, development, and test set.
+Attributes that are necessary to fine-tune BERT are the following:
+- input ids - list of tokens, smallest units of text that make sense
+- input mask - implies that all sequences that are longer than a specified length of a sequence will be truncated to that specified length, and those that are shorter will be padded with additional tokens. 
+- label id - id of the label for a sequence
+
+BERT FOR CLASSIFICATION
+=======================
+
+As previously mentioned, in order to fine-tune BERT for a specific task, an additional task-related output layer is added to an already pre-trained model.
+In this research, the bert-base-uncased was used as the pre-trained model.
+Some common tasks are implemented in the transformers library as the top layer. One of those is BertForSequenceClassification, which was used in this research to predict the eight submetrics of the Base score. 
+
+
+BERT FOR REGRESSION
+===================
+
+Similarly to the classification task, on top of 12 transformers lies a BertRegressor layer that gives the output for a regression task. The Bert Regressor was used to predict the base score directly from the description.  
+BERT Regressor is widely used in machine translation evaluation tasks. [22]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[20] BERT paper, in bib
+[21] Attention Is All You Need
+Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N. Gomez, Lukasz Kaiser, Illia Polosukhin
+[22] Machine Translation Evaluation with BERT Regressor
+29 Jul 2019  ·  Hiroki Shimanaka, Tomoyuki Kajiwara, Mamoru Komachi
