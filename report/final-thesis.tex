@@ -6,6 +6,8 @@
 \usepackage{natbib}
 \bibliographystyle{abbrvnat}
 \usepackage{multirow}
+\usepackage{graphicx}
+\graphicspath{ {./images/} }
 
 \begin{document}
 
@@ -29,18 +31,17 @@
 Every entity that is dependent on a computer system, from corporations to individuals, could be a subject to cyberattacks. In 2020, it is approximated that cybercrime costed the global economy almost USD 1 trillion \citep{cremer}. \\
 As technology evolves, more various threats to its security emerge.
 Tracking, describing, and evaluating these threats is of use when developing defense systems and making business decisions. \\
-A \textbf{vulnerability} is a weakness in a computer system, that an attacker can exploit to execute malicious commands, access data in an unauthorized way, or perform other types of cyber attacks \citep{humayun}. \\
+A \textbf{vulnerability} is a weakness in a computer system that an attacker can exploit to execute malicious commands, access data in an unauthorized way, or perform other types of cyber attacks \citep{humayun}. \\
 A \textbf{threat} is any circumstance or event which has the potential to compromise system security \citep{FER}. \\
 In order to tackle the cybersecurity problems in a more organized manner, a system of \emph{Common Vulnerability and Exposure} (CVE) has been developed. The MITRE Corporation maintains a public database of an increasing number of CVE records.
 A CVE record includes an ID, a brief description of the vulnerability, and references.
 In order to manipulate and prioritize vulnerabilities in a system, the metric of the \emph{Common Vulnerability Scoring System} (CVSS) score is used. This metric estimates how "dangerous" exploitation of a vulnerability is. CVSS is an emerging standard of vulnerability comparison \citep{khazaei}. \\
-The CVSS score is computed using submetrics with descrete values that are assigned by experts. The weight of each submetric is hard-coded into a formula \citep{bozorgi}. Khazaei et al. show an important concern in their work: the CVSS calculation \textbf{can be subjective} \citep{khazaei}.
-Moreover, the annotation requires experts and time, which is prolonging the process and is costly.
-Sometimes, all of the information needed to compute CVSS scores may not be available. Many vulnerabilities aren't assigned the score at all. \citep{vulnerwatch}.\\
+The CVSS score is computed using metrics with descrete values that are assigned by experts. The weight of each metric is hard-coded into a formula \citep{bozorgi}. Khazaei et al. show an important concern in their work: the CVSS calculation \textbf{can be subjective} \citep{khazaei}.
+Moreover, the annotation requires experts and time, which prolongs the process and is costly.
+Sometimes, the computation of the CVSS score is not possible because some metrics are missing. Many vulnerabilities aren't assigned the score at all \citep{vulnerwatch}.\\
 
-\noindent The main subject of this research is predicting the CVSS score by analyzing the description of the vulnerability, taken from CVE records. \\
-This would be a more objective approach, and the process of obtaining the score would be cheaper and faster. \\
-BERT classification model has proven to be 90-95 \% accurate in predicting the submetrics using the description of the vulnerability. \\
+\noindent The main subject of this research is predicting the CVSS score by analyzing the description of the vulnerability, taken from CVE records. This would be a more consistent approach, and the process of obtaining the score would be cheaper and faster. \\
+BERT classification model has proven to be 90-95 \% accurate in predicting the CVSS metrics using the description of the vulnerability. \\
 BERT is computationally expensive, and sometimes it is advised to try simpler models first, because they might work just as well. That is why Support Vector Regression and similar models were used to predict the score directly from the description.\\
 
 \noindent In the second chapter, the studies with similar concerns are mentioned. The details about the dataset used are explained in the third chapter. The simplified theory behind the models used is shown in the fourth chapter. The following are the explanations of the experiments, together with the results and their comparisons. 
@@ -48,14 +49,14 @@ BERT is computationally expensive, and sometimes it is advised to try simpler mo
 \chapter{Related work}
 Inspiration to do this research has been given by the study of Janamian et al., 2021, who have developed an application that takes any vulnerability description and gives its CVSS score. They used BERT classification to predict the Base score submetrics. The CVSS score was then calculated using the hard-coded CVSS formula and the predicted submetrics results. They have achieved accuracy in the 0.90 range. Using the predicted submetrics, they computed the CVSS score using the CVSS formula, and got the result of R2 = 0.505.\\
 
-\noindent Another study developing an objective method of CVSS score calculation, written by Khazaei et al. in 2015, used Support Vector Machine, Random-Forest, and fuzzy system. Their model's accuracy was around 0.86. \\
+\noindent Another study developing an objective method of CVSS score calculationused Support Vector Machine, Random-Forest, and fuzzy system \citep{khazaei}. Their model's accuracy was around 0.86. \\
 
 \noindent This problem was approached in detail by Bozorgi et al., 2010.  Instead of predicting the CVSS score itself, they have developed a new classification system, using various features of the vulnerability. \\
 
 \chapter{Data}
 \section{Data acquisition}
 Dataset used has been acquired and prepared by Janamian et al., when used in their work \emph{Using NLP to Predict the Severity of Cybersecurity Vulnerabilities, 2021.} \citep{vulnerwatch}.
-Most of the data is publicly available and maintained by the MITRE organization and the National Institute of Standards of Technology. \\
+Most of the data is publicly available and maintained by the MITRE organization and the US National Institute of Standards of Technology. \\
 From the cited research, we find out that at the beginning of 2021, only 50 \% of CVE records had a CVSS score assigned. \\
 The datasets were created by human experts and therefore didn't require much preparation or preprocessing. 
 
@@ -96,7 +97,7 @@ The base\_score is a subgroup of CVSS score, which is most widely used when desc
 According to CVSS v3.0 Ratings the severity is classified in the following ranges.\footnote{\url{https://nvd.nist.gov/vuln-metrics/cvss}}
 \begin{table}[h!]
 	\centering
-	\begin{tabular}{| c c c ||} 
+	\begin{tabular}{| c c c |} 
 		\hline
 		Severity & Base score range & No. of examples\\ [0.5ex] 
 		\hline\hline
@@ -114,23 +115,58 @@ According to CVSS v3.0 Ratings the severity is classified in the following range
 
 \noindent From Table 3.2. we can clearly see that the medium to high scores prevail in the training set.
 
+
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{| c | c |} 
+		\hline
+		Column Title & Values  \\ [0.5ex] 
+		\hline\hline
+		
+		Attack Vector & local  \\
+		Attack Complexity & low  \\
+		Privileges Required & none  \\
+		User Interaction & none; required \\ 
+		Scope & unchanged \\ 
+		Confidentiality & none  \\
+		Integrity & none  \\
+		Availability & high  \\
+		
+		\hline\hline
+		
+		Base Score & 5.5 \\
+		\hline
+	\end{tabular}
+	\caption{An example of a dataset entry}
+	\label{table:3}
+\end{table}
+\noindent The description of the shown entry: \\
+\textit{The JPEGSetupEncode function in tiff\_jpeg.c in LibTIFF 4.0.7 allows remote attackers to cause a denial of service (divide-by-zero error and application crash) via a crafted image.}
+An example of a dataset entry can be seen in the Table 3.3. Only the columns used in the experiments are shown. 
 \chapter{Models}
 
 \section{Support Vector Regression}
 \subsection{Support Vector Machines}
-The Support Vector algorithm was developed in its present form at AT\&T Bell Laboratories by Vapnik with colleagues \citep{boser}, \citep{smola} \\
-The Support Vector Machines are supervised learning models, that can be applied to classification, regression, and outliers detection problems. \footnote{\url{https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVR.html}} \\
+The Support Vector Machine (SVM) was developed in its present form at AT\&T Bell Laboratories by Vapnik et al. \citep{boser}, \citep{smola}. \\
+The SVM is a supervised learning model that can be applied to classification, regression, and outliers detection problems. \footnote{\url{https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVR.html}} \\
 In classification problems, the output is a discrete variable, and in regression it is continuous. \\
 
-\noindent The following explanation is taken from the \citep{Awad2015}.
-The SV algorithm needs to find a function in n-dimensional space which fits the data. 
-Support Vectors are the data points around this function. A flexible tube is formed symmetrically around the function so that the absolute values of errors less than a certain threshold are ignored both above and below the estimate. This way, the data points outside of the tube are penalized, and those on the inside are not.
-The SVR tries to find the narrowest tube centered around the function while minimizing the prediction error.  \\
-The advantage of SVR is that its complexity does not depend on the dimension of the input space. \\
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale = 0.5]{svm-visualization}
+	\caption{Support Vector Regression visualization}
+\end{figure}
 
-\noindent Depending on the choice of kernel, data is mapped into different dimensional spaces. Kernel functions can be linear, rbf, polynomial, and sigmoid. \\
+\noindent The following explanation is taken from the \citep{Awad2015}.
+The SV algorithm needs to find a function in n-dimensional space which fits the data. This function is called hyperplane.
+Support Vectors are the data points around this function. As shown in the Figure 4.1, a tube is formed symmetrically around the function so that the absolute values of errors less than epsilon are ignored both above and below the estimate. This way, the data points outside of the tube are penalized, and those on the inside are not.
+The SVR tries to find the narrowest tube centered around the function while minimizing the prediction error.  \\
+
+\noindent The advantage of SVR is that its complexity does not depend on the dimension of the input space. \\
+
+\noindent Depending on the choice of kernel, data is mapped into different dimensional spaces. Kernel functions can be linear, radial basis function (rbf), polynomial, and sigmoid. \\
 The free parameters of the model are C and epsilon. \\
-The model is defined by its hyperparameters. They control the way the model fits the data. Their fine-tuning was performed using Bayesian optimization, which is based on the Bayesian theorem. More commonly used Grid Search tries out all given combinations of parameters. Bayes Search, as opposed to Grid Search, memorizes the result of the previous combination and uses it to choose the next combination, so that it comes to the optimum more quickly. \citep{WU201926} \\
+The model is defined by its hyperparameters. They control the way the model fits the data. Their fine-tuning was performed using Bayesian optimization, which is based on the Bayesian theorem. Cross-validation is performed over parameter combinations. More commonly used Grid Search tries out all given combinations of parameters. Bayes Search, as opposed to Grid Search, memorizes the result of the previous combination and uses it to choose the next combination, so that it comes to the optimum more quickly. \citep{WU201926} \\
 
 \noindent The SVR, as well as other Support Vector models that will be mentioned, are implemented using \texttt{scikit-learn} library. Implementation details are described in Chapter 5. Experiments and Results.
 
@@ -138,7 +174,7 @@ The model is defined by its hyperparameters. They control the way the model fits
 Word2vec is a way to represent natural language as vectors. It was developed by Mikolov et al. in 2013 \citep{mikolov}. \\
 It consists of two learning models: Continuous Bag of Words (CBOW) and Skip-gram. CBOW predicts the word given its context, and Skip-gram predicts the context given a word. \citep{ma} \\
 Knowing the distances between vectors, it is possible to group similar words.
-This algorithm is used to convert the text input into vectors, after which they can be used in Support Vector Regression tasks.
+This algorithm is used to convert the text input into vectors, after which they can be used in regression and classification tasks using the SVM model.
 \subsection{LinearSVR and SGDRegressor}
 LinearSVR is similar to a Support Vector Regression model with a linear kernel. 
 The difference is that LinearSVR is implemented as a liblinear model, and SVR as libsvm. \footnote{\url{https://scikit-learn.org/stable/modules/generated/sklearn.svm.LinearSVR.html#sklearn.svm.LinearSVR}} \\
@@ -154,8 +190,8 @@ The transformer architecture is based on an encoder that maps an input to a cont
 By definition, an attention function is mapping vectors as a weighted sum to an output, where the vectors correspond to a query, keys, and values. \\
 The novelty in the BERT model is the bidirectional encoder, that is, the incorporation of context from both directions. This matters significantly in token-level tasks, such as question answering, token classification, etc. In order to perform bidirectional pre-training, BERT uses masked language models \citep{47751}. \\
 A great advantage of BERT over other language models is that the model has been already pre-trained on large text corpora. This model can then be fine-tuned with only one more output layer, and this model can be applied to a variety of tasks \citep{47751}. This framework is called transfer learning. \\
-When implementing BERT to a specific task, we can use an already pre-trained model. Our task is then to fine-tune it.
-Fine-tuning is in fact putting data through a transformer self-attention mechanism.
+When using BERT for a specific task, we can use an already pre-trained model. Our task is then to fine-tune it.
+Fine-tuning is in fact putting data through a transformer self-attention mechanism while optimizing the weights of the model.
 \subsection{Data prepartion for BERT}
 The dataset has to be split into train, development, and test set.\\
 Attributes that are necessary to fine-tune BERT are the following:
@@ -182,13 +218,11 @@ That is why SVR used approximately half of the training data, 30k samples, and 6
 10k samples were used to fine-tune the hyperparameters. \\
 All samples taken from the initial dataset were stratified with regard to the Base score, that is, the data was chosen in such a way, that the Base score values follow a uniform distribution.\\
 Vulnerability description tokens are transformed into vectors and then summarized in order to map one vector to one description.
-These vectors are then scaled using the StandardScaler's function fit\_transform, which first fits the input data to the output feature, and then scales it.\\
+These vectors are then scaled using the StandardScaler's function \texttt{fit\_transform}, which first fits the input data to the output feature, and then scales it.\\
 Parameter fine-tuning is then performed by BayesSearchCV, the function from \texttt{skopt} library. The kernel was set to rbf, because the SVR linear kernel is too slow for large datasets.\\
 The optimized hyperparameters are shown in Table 5.1.
 \begin{table}[h!]
-	\parbox{.45\linewidth}{
 	\centering
-	
 	\begin{tabular}{|| c | c ||} 
 		\hline
 		Parameter & Value \\ [0.5ex] 
@@ -199,9 +233,11 @@ The optimized hyperparameters are shown in Table 5.1.
 		\hline
 	\end{tabular}
 	\caption{Hyperparameteres for SVR}
-	\label{table:3}
-}
-	\parbox{.45\linewidth}{
+	\label{table:4}
+\end{table}
+
+\begin{table}
+
 	\centering
 	\begin{tabular}{|| c | c ||} 
 		\hline
@@ -215,8 +251,8 @@ The optimized hyperparameters are shown in Table 5.1.
 		\hline
 	\end{tabular}
 	\caption{SVR results}
-	\label{table:4}
-}
+	\label{table:5}
+
 \end{table}
 
 In Table 5.2., the results of the SVR model are shown.
@@ -224,11 +260,10 @@ The coefficient of determination is the score of correlation between two values.
 The obtained result shows medium level of correlation.
 
 \subsection{Linear Support Vector Regression}
-Linear SVR used the entire dataset. \\
-Again, the BayesSearchCV was used to optimize the hyperparameters.\\
-Because the number of samples was greater than the number of features, the loss function had to be set as 'squared\_epsilon\_insensitive'.
+Linear SVR used the entire dataset. The BayesSearchCV was used to optimize the hyperparameters.\\
+Because the number of samples was greater than the number of features, the loss function had to be set as \texttt{squared\_epsilon\_insensitive}.
 \begin{table}[h!]
-	\parbox{.45\linewidth}{
+	
 		\centering
 		\begin{tabular}{|| c | c ||} 
 			\hline
@@ -240,9 +275,9 @@ Because the number of samples was greater than the number of features, the loss 
 			\hline
 		\end{tabular}
 		\caption{Hyperparameteres for LinearSVR}
-		\label{table:5}
-	}
-	\parbox{.45\linewidth}{
+		\label{table:6}
+\end{table}
+\begin{table}
 		\centering
 		\begin{tabular}{|| c | c ||} 
 			\hline
@@ -256,17 +291,17 @@ Because the number of samples was greater than the number of features, the loss 
 			\hline
 		\end{tabular}
 		\caption{LinearSVR results}
-		\label{table:6}
-	}
+		\label{table:7}
+	
 \end{table}
 
 In Table 5.4, we see worse results obtained by Linear Support Vector Regression.
 The Maximum Residual Error is almost as large as the range of the base score, which suggests that this model should not be used to predict the score.
 
 \subsection{Stochastic Gradient Descent Regressor}
-SGDRegressor used the entire dataset as well. Bayes Search optimized the hyperparameteres.
+SGDRegressor used the entire dataset. Bayes Search optimized the hyperparameteres.
 \begin{table}[h!]
-	\parbox{.45\linewidth}{
+
 		\centering
 		\begin{tabular}{|| c | c ||} 
 			\hline
@@ -279,9 +314,9 @@ SGDRegressor used the entire dataset as well. Bayes Search optimized the hyperpa
 			\hline
 		\end{tabular}
 		\caption{Hyperparameteres for SGDRegressor}
-		\label{table:7}
-	}
-	\parbox{.45\linewidth}{
+		\label{table:8}
+\end{table}
+\begin{table} [h!]
 		\centering
 		\begin{tabular}{|| c | c ||} 
 			\hline
@@ -295,16 +330,14 @@ SGDRegressor used the entire dataset as well. Bayes Search optimized the hyperpa
 			\hline
 		\end{tabular}
 		\caption{SGDRegressor results}
-		\label{table:8}
-	}
+		\label{table:9}
 \end{table}
 
 In Table 5.6, we see that SGD Regressor similarly failed, with the coefficient of determination of only 0.278.
 
 \subsection{BERT Regressor}
-The BERT fine-tuning was done with PyTorch.\\
-The library \texttt{transformers} is used to import the tokenizer and BertModel in order to create a class BertRegressor.
-Firstly, the descriptions are tokenized using BertTokenizer. Then, the longest description is found. Using the method tokenizer.encode\_plus(), input\_ids and attention\_masks lists are created. Those lists, as well as the labels list, are converted into tensors. \\
+The BERT fine-tuning was done with PyTorch. The library \texttt{transformers} is used to import the tokenizer and \texttt{BertModel} in order to create a class \texttt{BertRegressor}.
+Firstly, the descriptions are tokenized using \texttt{BertTokenizer}. Then, the longest description is found. Using the method \texttt{tokenizer.encode\_plus()}, \texttt{input\_ids} and \texttt{attention\_masks} lists are created. Those lists, as well as the labels list, are converted into tensors. \\
 The training dataset is split into 80-20 train-validation sets. \\
 The optimizer used is AdamW with default parameters, and the scheduler is obtained with the function get\_linear\_schedule\_with\_warmup. 
 The loss function is MSELoss.\\
@@ -324,7 +357,7 @@ The model was trained for three epochs.
 			\hline
 		\end{tabular}
 		\caption{BERT regressor results}
-		\label{table:9}
+		\label{table:10}
 \end{table}
 \subsection{Results comparison}
 \begin{table}[h!]
@@ -341,22 +374,23 @@ The model was trained for three epochs.
 		\hline
 	\end{tabular}
 	\caption{Models comparison}
-	\label{table:10}
+	\label{table:11}
 \end{table}
 
 In the Table 5.8, we see that BERT Regressor performed better than any other model, but only by a small margin compared to SVR.
 
-\section{Base score submetrics classification}
-The goal of this experiment was to discover at what level of accuracy can we predict the submetrics of the Base score, having the vulnerability description as the input.
+\section{Base score metrics classification}
+The goal of this experiment was to discover at what level of accuracy can we predict the metrics of the Base score, having the vulnerability description as the input.
 \subsection{Baseline}
 The Support Vector Classifier with default parameters was used as a baseline model for this prediction.\\
 The description tokens were converted into vectors, and the vectors were summarized just like in SVR.
 
 \begin{table}[h!]
 	\centering
+	\resizebox{\textwidth}{!}{%
 	\begin{tabular}{| c | c | c | c | c | c | c |} 
 		\hline
-		Score Submetric & Value & precision & recall & f1-score & support & accuracy \\ [0.5ex] 
+		Score Metric & Value & precision & recall & f1-score & support & accuracy \\ [0.5ex] 
 		\hline\hline
 		\multirow{4}{*}{Attack Vector} & ADJACENT NETWORK & 0.00 & 0.00 & 0.00 & 338 & \multirow{4}{*}{0.82} \\ 
 										& LOCAL & 0.84 & 0.46 & 0.60 & 3625 & \\ 
@@ -389,9 +423,9 @@ The description tokens were converted into vectors, and the vectors were summari
 		& NONE & 0.87 & 0.85 & 0.86 & 5997 & \\ 
 		\hline
 		
-	\end{tabular}
+	\end{tabular}}
 	\caption{Baseline results}
-	\label{table:11}
+	\label{table:12}
 \end{table}
 
 In Table 5.9, the results of the Support Vector Classifier results are shown. 
@@ -411,13 +445,14 @@ Usually, batch size is 16 or 32, in this model the value of batch size is 16.
 The AdamW optimizer with a base learning rate of 5e-5  is used. The WarmupLinearScheduler linearly increases the learning rate during the warmup stage. During the training, the learning rate slowly decreases again.\\
 The model was trained for three epochs.
 At each epoch, the model is trained on the training set and evaluated on the development set. \\
-To perform the final evaluation, the model is given test data that has never been seen before, and it predicts the submetric values. \\
+To perform the final evaluation, the model is given test data that has never been seen before, and it predicts the metric values. \\
 
 \begin{table}[h!]
+	\resizebox{\textwidth}{!}{%
 	\centering
 	\begin{tabular}{| c | c | c | c | c | c | c |} 
 		\hline
-		Score Submetric & Value & precision & recall & f1-score & support & accuracy \\ [0.5ex] 
+		Score Metric & Value & precision & recall & f1-score & support & accuracy \\ [0.5ex] 
 		\hline\hline
 		\multirow{4}{*}{Attack Vector} & ADJACENT NETWORK & 0.84 & 0.46 & 0.60 & 3625 & \multirow{4}{*}{0.92} \\ 
 		& NETWORK & 0.94 & 0.97 & 0.95 & 11267 &
@@ -451,23 +486,23 @@ To perform the final evaluation, the model is given test data that has never bee
 		& NONE & 0.89 & 0.92 & 0.90 & 6013 & \\ 
 		\hline
 		
-	\end{tabular}
+	\end{tabular}}
 	\caption{BERT Classification results}
-	\label{table:12}
+	\label{table:13}
 \end{table} 
 
 
 \noindent In Table 5.10, results of the BERT Classifier are shown.
 We can see overall better performance of BERT than of the baseline model.
 Even for values that do not have large support, the classifier is performing decently. 
-Again, the accuracy of the model is higher for the submetrics with two values.
-It is interesting that Confidentiality impact submetric has a balanced dataset, yet the lowest accuracy rank.
+Again, the accuracy of the model is higher for the metrics with two values.
+It is interesting that Confidentiality impact metric has a balanced dataset, yet the lowest accuracy rank.
 
 \begin{table}[h!]
 	\centering
 	\begin{tabular}{| c | c | c | c|} 
 		\hline
-		Score Submetric & Baseline accuracy & BERT accuracy & Vulnerwatch accuracy \\ [0.5ex] 
+		Score Metric & Baseline accuracy & BERT accuracy & Vulnerwatch accuracy \\ [0.5ex] 
 		\hline\hline
 		Attack Vector & 0.82 & 0.92 & 0.9257\\
 		\hline
@@ -488,24 +523,24 @@ It is interesting that Confidentiality impact submetric has a balanced dataset, 
 		
 	\end{tabular}
 	\caption{Results comparison}
-	\label{table:13}
+	\label{table:14}
 \end{table}
- \clearpage
+
 \noindent Finally, the two models are compared by their accuracy scores in Table 5.11.
-As expected, BERT has performed better than the SVM for all submetrics.
+As expected, BERT has performed better than the SVM for all metrics.
 The Vulnerwatch accuracy comes from the research that inspired this thesis \citep{vulnerwatch}. The achieved results are very similar to those from the reserch. This confirms that the BERT model performed well, with only two epochs of training.
 
 \section{Connecting two experiments}
-In the Vulnerwatch research, the authors predicted the submetrics values, and then used them as parameters to calculate the score using the CVSS formula. They have come to the coefficient of determination of 0.505 for the base component \citep{vulnerwatch}.
+In the Vulnerwatch research, the authors predicted the metrics values, and then used them as parameters to calculate the score using the CVSS formula. They have come to the coefficient of determination of 0.505 for the base component \citep{vulnerwatch}.
 The SVR model predicted the base score with R2 score of 0.503, and BERT Regressor with R2 score of 0.561.
 Since the authors of the mentioned research used their model as a product, it is fair to conclude that BERT Regressor performed well, even better than some of the existent methods.
 
 \chapter{Conclusion}
 No system is without an error. As long as there is a flaw in the system, there exists a threat. The number of various flaws and threats continues to grow. This problem was systematically approached by MITRE and NIST, which maintain the database of Common Vulnerability and Exposure (CVE) records. Only a part of the records have been assigned their severity ranking, Common Vulnerability Scoring System (CVSS) score. This score helps in the risk assessment of the vulnerability. The CVSS base score is a result of eight submetrics, the values of which are assigned by human experts. Computing a CVSS score is a long and costly process, and it can be subjective. \\
 
-In this research, more objective ways to get the CVSS score have been examined. Natural language processing methods were used to predict the CVSS base score directly from the vulnerability description.\\
+In this research, more consistent ways to get the CVSS score have been examined. Natural language processing methods were used to predict the CVSS base score directly from the vulnerability description.\\
 Support Vector Regression and Bert Regressor have achieved the best results in this experiment, having the coefficients of determination R2(SVR) = 0.503 and R2(Bert) = 0.561. Comparing this result with the research by \citep{vulnerwatch}, R2 = 0.505, we can say that the models performed well, and could be used as a helping method for assignment of CVSS score. \\
-If the direct prediction is not sufficiently accurate, it is possible to predict the base score submetrics. Depending on the values of the submetrics the base score is calculated. The Support Vector Classifier was used as a baseline model. We can see the accuracy of 85-90 \%. BERT Sequence Classifier proved to be 90-95 \% accurate in these predictions. The conclusion is that we can use even less computationally expensive models, such as SVC, to achieve a high degree of accuracy in this task.\\
+If the direct prediction is not sufficiently accurate, it is possible to predict the base score metrics. Depending on the values of the metrics the base score is calculated. The Support Vector Classifier was used as a baseline model. We can see the accuracy of 85-90 \%. BERT Sequence Classifier proved to be 90-95 \% accurate in these predictions. The conclusion is that we can use even less computationally expensive models, such as SVC, to achieve a high degree of accuracy in this task.\\
 
 Different models approach text tokens differently, so it is not clear in which way the text should be preprocessed. 
 In order to achieve better models, the descriptions should be preprocessed in many different ways, and results should be compared.
@@ -519,10 +554,10 @@ An increase in the number of epochs in the BERT Regressor could make the result 
 Cyber attacks are a problem for all users of computer systems. Prioritization and evaluation of threats can be difficult and costly. The Common Vulnerability Scoring System (CVSS) score is used to assess the danger of a threat. CVSS is assigned by experts. 
 With help of NLP methods, it is possible to predict CVSS score from the description of a vulnerability.
 Support Vector Regression and BERT Regressor were used to directly predict the base component of CVSS. The models performed well compared to already existent methods, but there is space for improvement.
-On the other hand, it is possible to predict the score submetrics in the accuracy range of 0.90-0.95 using the BERT classification model. This would be at least one step towards automated prediction of CVSS.
+On the other hand, it is possible to predict the score metrics in the accuracy range of 0.90-0.95 using the BERT classification model. This would be at least one step towards automated prediction of CVSS.
 
 
-\keywords{natural language processing, machine learning, Common Vulnerability and Exposure records, CVSS score, Support Vector Regression, BERT, transformers, BERT Regressor, BERT Classification, }
+\keywords{natural language processing, machine learning, Common Vulnerability and Exposure records, CVSS score, Support Vector Regression, BERT, transformers, BERT Regressor, BERT Classification}
 \end{abstract}
 
 \hrtitle{Primjena strojnog učenja za klasifikaciju prijetnji iz zapisa o kibernetičkoj sigurnosti}

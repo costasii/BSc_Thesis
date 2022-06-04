@@ -10,19 +10,19 @@
 \contentsline {subsection}{\numberline {4.1.1}Support Vector Machines}{6}{}%
 \contentsline {subsection}{\numberline {4.1.2}word2vec}{7}{}%
 \contentsline {subsection}{\numberline {4.1.3}LinearSVR and SGDRegressor}{7}{}%
-\contentsline {section}{\numberline {4.2}BERT}{7}{}%
-\contentsline {subsection}{\numberline {4.2.1}BERT architecture}{7}{}%
-\contentsline {subsection}{\numberline {4.2.2}Data prepartion for BERT}{8}{}%
-\contentsline {subsection}{\numberline {4.2.3}BERT classification}{8}{}%
+\contentsline {section}{\numberline {4.2}BERT}{8}{}%
+\contentsline {subsection}{\numberline {4.2.1}BERT architecture}{8}{}%
+\contentsline {subsection}{\numberline {4.2.2}Data prepartion for BERT}{9}{}%
+\contentsline {subsection}{\numberline {4.2.3}BERT classification}{9}{}%
 \contentsline {subsection}{\numberline {4.2.4}BERT for regression}{9}{}%
 \contentsline {chapter}{\numberline {5}Experiments and results}{10}{}%
 \contentsline {section}{\numberline {5.1}Base score prediction from vulnerability description}{10}{}%
 \contentsline {subsection}{\numberline {5.1.1}Support Vector Regression + word2vec}{10}{}%
 \contentsline {subsection}{\numberline {5.1.2}Linear Support Vector Regression}{11}{}%
-\contentsline {subsection}{\numberline {5.1.3}Stochastic Gradient Descent Regressor}{11}{}%
+\contentsline {subsection}{\numberline {5.1.3}Stochastic Gradient Descent Regressor}{12}{}%
 \contentsline {subsection}{\numberline {5.1.4}BERT Regressor}{12}{}%
 \contentsline {subsection}{\numberline {5.1.5}Results comparison}{12}{}%
-\contentsline {section}{\numberline {5.2}Base score submetrics classification}{13}{}%
+\contentsline {section}{\numberline {5.2}Base score metrics classification}{13}{}%
 \contentsline {subsection}{\numberline {5.2.1}Baseline}{13}{}%
 \contentsline {subsection}{\numberline {5.2.2}BERT Classification}{14}{}%
 \contentsline {section}{\numberline {5.3}Connecting two experiments}{16}{}%

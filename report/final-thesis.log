@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.10.24)  2 JUN 2022 00:26
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.10.24)  4 JUN 2022 23:12
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -273,20 +273,20 @@ File: l3backend-pdftex.def 2021-10-18 L3 backend support: PDF output (pdfTeX)
 (./final-thesis.aux)
 \openout1 = `final-thesis.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -346,19 +346,19 @@ e
 ))
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
-LaTeX Font Info:    Trying to load font information for T1+phv on input line 21
+LaTeX Font Info:    Trying to load font information for T1+phv on input line 23
 .
 
 (c:/texlive/2021/texmf-dist/tex/latex/psnfss/t1phv.fd
 File: t1phv.fd 2020/03/25 scalable font definitions for T1/phv.
 )
-LaTeX Font Info:    Trying to load font information for U+msa on input line 21.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 23.
 
 
 (c:/texlive/2021/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 21.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 23.
 
 
 (c:/texlive/2021/texmf-dist/tex/latex/amsfonts/umsb.fd
@@ -376,12 +376,12 @@ esis.toc [4
 [5]
 Chapter 1.
 
-Underfull \hbox (badness 10000) in paragraph at lines 29--40
+Underfull \hbox (badness 10000) in paragraph at lines 31--42
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 41--45
+Underfull \hbox (badness 10000) in paragraph at lines 43--46
 
  []
 
@@ -390,17 +390,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 41--45
 ] [2]
 Chapter 2.
 
-Underfull \hbox (badness 10000) in paragraph at lines 49--50
+Underfull \hbox (badness 10000) in paragraph at lines 50--51
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 51--52
+Underfull \hbox (badness 10000) in paragraph at lines 52--53
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 53--54
+Underfull \hbox (badness 10000) in paragraph at lines 54--55
 
  []
 
@@ -411,84 +411,61 @@ Chapter 3.
 [4
 
 ]
-LaTeX Font Info:    Trying to load font information for T1+pcr on input line 96
+LaTeX Font Info:    Trying to load font information for T1+pcr on input line 97
 .
  (c:/texlive/2021/texmf-dist/tex/latex/psnfss/t1pcr.fd
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
 ) [5]
 Chapter 4.
 
-Underfull \hbox (badness 10000) in paragraph at lines 121--124
+Underfull \hbox (badness 10000) in paragraph at lines 150--153
 
  []
 
+<./images//svm-visualization.png, id=37, 459.21562pt x 362.85562pt>
+File: ./images//svm-visualization.png Graphic file (type png)
+<use ./images//svm-visualization.png>
+Package pdftex.def Info: ./images//svm-visualization.png  used on input line 15
+6.
+(pdftex.def)             Requested size: 229.60724pt x 181.42737pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 125--130
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 131--134
+Underfull \hbox (badness 10000) in paragraph at lines 160--164
 
  []
 
 [6
 
-]
-Underfull \hbox (badness 10000) in paragraph at lines 144--144
+ <./images//svm-visualization.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 165--166
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 167--170
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 180--180
 [][]$\T1/pcr/m/n/10 https : / / scikit-[]learn . org / stable / modules / gener
 ated / sklearn . svm .
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 145--145
+Underfull \hbox (badness 10000) in paragraph at lines 181--181
 [][]$\T1/pcr/m/n/10 https : / / scikit-[]learn . org / stable / modules / gener
 ated / sklearn . linear _
  []
 
 [7] [8] [9]
 Chapter 5.
-
-Overfull \hbox (52.30908pt too wide) in paragraph at lines 219--219
- [][] 
- []
-
 [10
 
-]
-Overfull \hbox (52.30908pt too wide) in paragraph at lines 260--260
- [][] 
- []
-
-
-Underfull \hbox (badness 6526) in paragraph at lines 283--283
-[]\T1/ptm/b/n/10.95 Table 5.5: |\T1/ptm/m/n/10.95 Hy-per-pa-ram-e-teres for SG-
-
- []
-
-
-Overfull \hbox (52.30908pt too wide) in paragraph at lines 299--299
- [][] 
- []
-
-[11] [12]
-Overfull \hbox (49.56265pt too wide) in paragraph at lines 357--393
- [][] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 399--401
-
- []
-
-[13]
-Underfull \hbox (badness 10000) in paragraph at lines 406--415
-
- []
-
-
-Overfull \hbox (49.56265pt too wide) in paragraph at lines 418--455
- [][] 
+] [11]
+Overfull \hbox (10.86542pt too wide) in paragraph at lines 339--345
+\T1/ptm/m/n/12 Us-ing the method \T1/pcr/m/n/12 tokenizer.encode_plus()\T1/ptm/
+m/n/12 , \T1/pcr/m/n/12 input_ids \T1/ptm/m/n/12 and \T1/pcr/m/n/12 attention_m
+asks
  []
 
 
@@ -497,17 +474,33 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[14] [15] [16
+[12]
 
-]
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 433--435
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 440--449
+
+ []
+
+[13] [14]
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[15] [16]
 Chapter 6.
 
-Underfull \hbox (badness 10000) in paragraph at lines 504--505
+Underfull \hbox (badness 10000) in paragraph at lines 539--540
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 506--509
+Underfull \hbox (badness 10000) in paragraph at lines 541--544
 
  []
 
@@ -530,7 +523,7 @@ See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.530 Kibernetički ​
+l.565 Kibernetički ​
                        ​napadi veliki su problem za sve korisnike računal...
 
 You may provide a definition with
@@ -544,7 +537,7 @@ See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.530 Kibernetički ​​
+l.565 Kibernetički ​​
                           napadi veliki su problem za sve korisnike računal...
 
 You may provide a definition with
@@ -552,23 +545,23 @@ You may provide a definition with
 
 [21] (./final-thesis.aux) ) 
 Here is how much of TeX's memory you used:
- 6679 strings out of 478579
- 100259 string characters out of 5857457
- 443706 words of memory out of 5000000
- 24465 multiletter control sequences out of 15000+600000
+ 6696 strings out of 478579
+ 100683 string characters out of 5857457
+ 443702 words of memory out of 5000000
+ 24479 multiletter control sequences out of 15000+600000
  465004 words of font info for 98 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 72i,11n,80p,702b,383s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 72i,11n,80p,702b,377s stack positions out of 5000i,500n,10000p,200000b,80000s
 {c:/texlive/2021/texmf-dist/fonts/enc/dvips/base/8r.
 enc}<c:/texlive/2021/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb><c:/texlive/
 2021/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb><c:/texlive/2021/texmf-dist
 /fonts/type1/urw/helvetic/uhvr8a.pfb><c:/texlive/2021/texmf-dist/fonts/type1/ur
 w/times/utmb8a.pfb><c:/texlive/2021/texmf-dist/fonts/type1/urw/times/utmr8a.pfb
 ><c:/texlive/2021/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on final-thesis.pdf (25 pages, 124783 bytes).
+Output written on final-thesis.pdf (25 pages, 151198 bytes).
 PDF statistics:
- 116 PDF objects out of 1000 (max. 8388607)
- 76 compressed objects within 1 object stream
+ 119 PDF objects out of 1000 (max. 8388607)
+ 77 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 6 words of extra memory for PDF output out of 10000 (max. 10000000)
 
