@@ -430,7 +430,7 @@ The description tokens were converted into vectors, and the vectors were summari
 
 In Table 5.9, the results of the Support Vector Classifier results are shown. 
 
-Precision metric is accuracy of positive predictions. Recall is the ability of a model to find all positive instances. F1 score is a weighted harmonic mean of precision and recall. The best f1 score is 1.0, and the worst is 0.0. Support is the number of examples of the corresponding value in the tranining dataset.
+Precision metric is accuracy of positive predictions. Recall is the ability of a model to find all positive instances. F1 score is a weighted harmonic mean of precision and recall. F1 score range is between 0 and 1 where higger values indicate better performance. Support is the number of examples of the corresponding value in the tranining dataset.
 The accuracy of the model is the percentage of correctly predicted values. \\
 
 For some values, all the metrics are equal to 0.00. This can happen when there is too little data for the classifier to evaluate its performance. Also, it is noticeable that the accuracy of the model is overall higher in the submetrics with only two values, even when the dataset is not balanced.
@@ -438,12 +438,12 @@ For some values, all the metrics are equal to 0.00. This can happen when there i
 
 \subsection{BERT Classification}
 The fine-tuning was performed with PyTorch.
-Firstly, the dataset was divided into a test set (20\%) and the rest set, which was divided into a training set (80\%) and a development set.\\
+Firstly, the dataset was divided into a test set (20\%) and the rest set. The rest set (80\% of the initial dataset) was then divided into a training set (80\%) and a development set (20\%).\\
 From the \texttt{transformers} library, BertForSequenceClassification made up the top layer of the BERT model.\\
 In the function convert\_examples\_to\_inputs\textit{(X, y, label2idx, max\_seq\_len, tokenizer)}, a list of token ids, segment ids, and input mask lists were created. Longer descriptions than max\_seq\_len were truncated, while the shorter ones were padded. \\
 Usually, batch size is 16 or 32, in this model the value of batch size is 16.
 The AdamW optimizer with a base learning rate of 5e-5  is used. The WarmupLinearScheduler linearly increases the learning rate during the warmup stage. During the training, the learning rate slowly decreases again.\\
-The model was trained for three epochs.
+The model was fine-tuned for three epochs.
 At each epoch, the model is trained on the training set and evaluated on the development set. \\
 To perform the final evaluation, the model is given test data that has never been seen before, and it predicts the metric values. \\
 
@@ -549,7 +549,6 @@ An increase in the number of epochs in the BERT Regressor could make the result 
 
 \bibliographystyle{plainnat}
 
-\listoftables
 \begin{abstract}
 Cyber attacks are a problem for all users of computer systems. Prioritization and evaluation of threats can be difficult and costly. The Common Vulnerability Scoring System (CVSS) score is used to assess the danger of a threat. CVSS is assigned by experts. 
 With help of NLP methods, it is possible to predict CVSS score from the description of a vulnerability.

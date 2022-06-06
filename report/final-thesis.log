@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.10.24)  4 JUN 2022 23:12
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.10.24)  6 JUN 2022 11:52
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -508,13 +508,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 541--544
 
 ] [18
 
-]) [19] (./final-thesis.lot)
-\tf@lot=\write4
-\openout4 = `final-thesis.lot'.
-
- [20
-
-]
+]) [19]
 
 ! Package inputenc Error: Unicode character ​ (U+200B)
 (inputenc)                not set up for use with LaTeX.
@@ -523,7 +517,7 @@ See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.565 Kibernetički ​
+l.564 Kibernetički ​
                        ​napadi veliki su problem za sve korisnike računal...
 
 You may provide a definition with
@@ -537,18 +531,18 @@ See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.565 Kibernetički ​​
+l.564 Kibernetički ​​
                           napadi veliki su problem za sve korisnike računal...
 
 You may provide a definition with
 \DeclareUnicodeCharacter 
 
-[21] (./final-thesis.aux) ) 
+[20] (./final-thesis.aux) ) 
 Here is how much of TeX's memory you used:
- 6696 strings out of 478579
- 100683 string characters out of 5857457
+ 6690 strings out of 478579
+ 100595 string characters out of 5857457
  443702 words of memory out of 5000000
- 24479 multiletter control sequences out of 15000+600000
+ 24476 multiletter control sequences out of 15000+600000
  465004 words of font info for 98 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  72i,11n,80p,702b,377s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -558,10 +552,10 @@ enc}<c:/texlive/2021/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb><c:/texlive/
 /fonts/type1/urw/helvetic/uhvr8a.pfb><c:/texlive/2021/texmf-dist/fonts/type1/ur
 w/times/utmb8a.pfb><c:/texlive/2021/texmf-dist/fonts/type1/urw/times/utmr8a.pfb
 ><c:/texlive/2021/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on final-thesis.pdf (25 pages, 151198 bytes).
+Output written on final-thesis.pdf (24 pages, 150493 bytes).
 PDF statistics:
- 119 PDF objects out of 1000 (max. 8388607)
- 77 compressed objects within 1 object stream
+ 115 PDF objects out of 1000 (max. 8388607)
+ 74 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  6 words of extra memory for PDF output out of 10000 (max. 10000000)
 
